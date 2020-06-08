@@ -1,0 +1,36 @@
+{
+  "name": "one-time-file-transfer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src-server/app.js",
+  "scripts": {
+    "dev": "npm-run-all --parallel watch:server watch:build",
+    "devWebpack": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production",
+    "start": "node src-server/app.js",
+    "watch:server": "webpack -d --watch",
+    "watch:build": "env-cmd -f ./config/dev.env nodemon ./src-server/app.js"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "env-cmd": "^10.1.0",
+    "nodemon": "^2.0.3",
+    "npm-run-all": "^4.1.5",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "author": "Mohammad Nabi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dropzone": "^5.7.0",
+    "express": "^4.17.1",
+    "moment": "^2.26.0",
+    "mongoose": "^5.9.16",
+    "multer": "^1.4.2"
+  }
+}
