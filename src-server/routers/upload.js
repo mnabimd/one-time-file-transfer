@@ -37,7 +37,8 @@ router.post('/file-upload', upload.single('myfile'), async (req, res) => {
        await file.save();
     
         res.send({
-            file
+            file,
+            progress: 'Your file has been uploaded'
         })
     } catch (e) {
         res.status(500).send({

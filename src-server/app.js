@@ -1,7 +1,8 @@
 const express = require('express');
 require('./db/mongoose'); //Load MongoDB Database.
 const downloadRouter = require('./routers/download');
-const uploadRouter = require('./routers/upload')
+const uploadRouter = require('./routers/upload');
+const cors = require('cors');
 
 // Core Modules
 const path = require('path');
@@ -13,6 +14,8 @@ const app = express();
 const publicDir = path.join(__dirname, '../public');
 app.use(express.static(publicDir));
 
+// Methods on app :-
+app.use(cors());
 app.use(express.json());
 
 // Load Routers:-
