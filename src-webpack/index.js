@@ -108,9 +108,4 @@ elements.accessKeyDwnBtn.addEventListener('click', async (e) => {
 
 });
 
-// When the copy text button is clicked, copy the text area content into to the clipboard
-elements.copyTextBtn.addEventListener('click', (e) => {
-    copyText(elements.textModalTextarea);
-    document.execCommand('copy');
-})
 console.log('Client-Side JS Loaded.')

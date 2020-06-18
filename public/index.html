@@ -249,13 +249,17 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Your Text:</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Result Found</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+                    <h6>Your Text:</h6>
                     <textarea name="" class="w-100" id="text-modal-textarea"></textarea>
+                    <small class="text-muted" id="text-expiry">Your text will be automatically deleted after: <span
+                            class="text-danger"> 2020/6/18</span></small><br>
+
                     <small class="text-muted" id="text-copied-textarea"></small>
                 </div>
                 <div class="modal-footer">
@@ -271,6 +275,36 @@
     </div>
 
     <!-- File Modal -->
+    <div class="modal fade" id="file-modal" tabindex="-1" role="dialog"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" >Result Found</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>Your File:</h6>
+                    <div class="p2">
+                        <h5 class="text-center mx-auto" id="modal-filename"></h5>
+                    </div>
+                    <small class="text-muted" id="file-expiry">Your file will be automatically deleted after: <span
+                            class="text-danger">2020/6/18</span></small><br>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-secondary" id="modal-download">Download File</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button trigger modal -->
+        <button id="file-modal-btn" style="display: none" type="button" data-toggle="modal"
+            data-target="#file-modal">
+        </button>
+    </div>
+
 
     <!-- Footer -->
     <footer class="bg-white py-5">

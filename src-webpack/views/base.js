@@ -23,7 +23,12 @@ const elements = {
     textModalBtn: document.getElementById('text-modal-btn'),
     textModalTextarea: document.getElementById('text-modal-textarea'),
     copyTextBtn: document.getElementById('copy-text-btn'),
-    textCopiedTextarea: document.getElementById('text-copied-textarea')
+    textCopiedTextarea: document.getElementById('text-copied-textarea'),
+    textExpiry: document.getElementById('text-expiry'),
+    fileModalBtn: document.getElementById('file-modal-btn'),
+    fileDownload: document.getElementById('modal-download'),
+    fileExpiry: document.getElementById('file-expiry'),
+    modalFilename: document.getElementById('modal-filename')
 }
 
 
