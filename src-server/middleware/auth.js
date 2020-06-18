@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
     try {
         const keycode = req.body.keycode;
         
-        if (!keycode) return res.send({error: 'Please enter a valid access key!'});
+        if (!keycode) return res.status(400).send({error: 'Please enter a valid access key!'});
 
         let textFile;
         if (req.body.request === "text") {

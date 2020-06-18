@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+// If the request is a file upload, then FormData have to take care of the data (freshUpload);
 const formDataForFileUpload = (freshUploadParam) => {
     var formData = new FormData();
     formData.append('keycode', freshUploadParam.keycode);
@@ -9,7 +10,7 @@ const formDataForFileUpload = (freshUploadParam) => {
     return formData;
 }
 
-
+// Make an HTTP request to the API for file/text upload.
 const makeUploadRequest = async (FreshUpload) => {
     let uploadType;
     if (FreshUpload.text) { uploadType = 'text' } else { uploadType = 'file'};
@@ -32,6 +33,25 @@ const makeUploadRequest = async (FreshUpload) => {
     }
 };
 
+const makeDownloadRequest = async (data) => {
+    let obj = data;
+
+    try {
+        const data = await axios({
+            method: 'post',
+            url: 'http://localhost:3000/download-info',
+            data: obj
+        });
+
+        return data;
+    } catch (e) {
+        return {
+            e
+        }
+    }
+}
+
 module.exports = {
-    makeUploadRequest
+    makeUploadRequest,
+    makeDownloadRequest
 }

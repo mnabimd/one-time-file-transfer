@@ -3,13 +3,20 @@ const auth = require('../middleware/auth');
 
 const router = new express.Router();
 
-router.get('/download-info', auth, async (req, res) => {
+router.post('/download-info', auth, async (req, res) => {
     // Validations are done by the (auth) middleware.
 
-    res.send({
+    const data = {
         attachment: req.text || req.yourFile,
         expiresOn: req.expiresOn
-    })
+    };
+
+    // Then this is a file:-
+    if (!data.attachment.text) {
+        data.downloadLink = `/download/${data.attachment.fileInfo.filename}`;
+    }
+
+    res.send(data)
 });
 
 
