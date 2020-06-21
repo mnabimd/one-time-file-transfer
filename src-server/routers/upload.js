@@ -2,6 +2,7 @@ const express = require('express');
 const Text = require('../models/Text');
 const File = require('../models/File');
 const multer = require('multer');
+const uniqueString = require('unique-string');
 
 // Settings:-
 const storage = multer.diskStorage({
@@ -9,11 +10,9 @@ const storage = multer.diskStorage({
         cb(null, `Storage/`)
     },
     filename: function (req, file, cb) {
-        let timestamp, minutes;
-        timestamp = new Date().getTime();
-        minutes = Math.floor((timestamp / 1000) / 1000); 
+        const shortString = uniqueString().slice(0, 12);
 
-        cb(null, `${minutes}-s-${file.originalname}`)
+        cb(null, `${shortString}-s-${file.originalname}`)
         // A Call back Function:- Name of the file of the uploader's computer.
     }
 });
@@ -38,7 +37,7 @@ router.post('/file-upload', upload.single('myfile'), async (req, res) => {
     
         res.send({
             file,
-            progress: 'Your file has been uploaded'
+            status: 'Your file has been uploaded successfully!'
         })
     } catch (e) {
         res.status(500).send({

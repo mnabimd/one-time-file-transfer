@@ -1,13 +1,13 @@
 const { elements } = require('./views/base');
-const { getInputs, inputValidations } = require('./views/inputsView');
+const { getInputs, inputValidations, keycodeValidations } = require('./views/inputsView');
 const { getAccesskey, disableElement } = require('./views/downloadInputsView');
-const { renameHeaderName } = require('./views/formView');
+const { renameHeaderName, renderProgressbar, updateProgressbar, successProgressbar, resetProgressbar } = require('./views/formView');
 const { convertToTextOrFile } = require('./modals/DataConverter');
 const Upload = require('./modals/Upload');
-const { makeUploadRequest, makeDownloadRequest } = require('./modals/Request');
+const { makeUploadRequest, makeDownloadRequest, getPercentUpload } = require('./modals/Request');
 const { textApplier } = require('./views/utils');
 const { dataValidator } = require('./modals/DataValidator');
-const { showTextFileModal, copyText } = require('./views/modals');
+const { showTextFileModal, responseMessage } = require('./views/modals');
 // Dragged File Header Name:-
 elements.formFile.onchange = (e) => {
     // Apply The New File Name:
@@ -54,8 +54,16 @@ textFileDropdowns.forEach(dropdown => {
     }
 });
 
-// When the submit BTN is clicked:-
+const events = ['blur', 'focus', 'keyup'];
+
+events.forEach(event => {
+    elements.accessKey.addEventListener(event, keycodeValidations);
+});
+
+// When the submit BTN (Upload) is clicked:-
 elements.submitBtn.addEventListener('click', async (e) => {
+    // Remove the progress first!
+    resetProgressbar();
 
     // If there was any input validation, return false!
     if (!inputValidations()) return false;
@@ -64,14 +72,35 @@ elements.submitBtn.addEventListener('click', async (e) => {
     // Here let's swift/exchange the data if it is a text or a file!
     const TextFile = convertToTextOrFile(inputValues);
     
-    // Finally, let's send the HTTP request by AXIOS :- 
+    // Finally, let's create the correct Obj Data for AXIOS :- 
     let upload = new Upload(TextFile);
     // 1. Let's find out if the data is a text or a file.
     upload.textFileFinder();
-    // 2. Let's send the data with HTTP request:-
-    const data = await makeUploadRequest(upload);
 
-    console.log(data)
+    // Uploading a file? Let's show a loader:- 
+
+    if (upload.myfile) {
+        // 2. Show Loader For File Uploads and Disable the Upload Button:-
+        //  1> Disable Upload Button:
+        disableElement(e.target, true);
+        //  2> Render Progress Bar
+        renderProgressbar(e.target);
+        //  3> Update the percentage each 100ms:-
+        // Note: getPercentUpload is a function, and it will be called each 100ms later in updatProgressbar in order to get the real-time percentage number.
+        updateProgressbar(getPercentUpload);
+    }
+    
+    // 3. Let's send the data with HTTP request by AXIOS:-
+    const data = await makeUploadRequest(upload);
+    
+    if (upload.myfile) {
+        // Data/Response recieved? Enable The Upload Button and remove progress bar:-
+        disableElement(e.target, false);
+        successProgressbar();
+    };
+
+    textApplier(elements.validationMsg, 'text-muted', responseMessage(data));
+
 });
 
 

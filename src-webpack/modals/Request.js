@@ -1,5 +1,10 @@
 const axios = require('axios');
 
+// For Sending and receving some data!
+const state = {
+    percentage: 0
+};
+
 // If the request is a file upload, then FormData have to take care of the data (freshUpload);
 const formDataForFileUpload = (freshUploadParam) => {
     var formData = new FormData();
@@ -19,11 +24,25 @@ const makeUploadRequest = async (FreshUpload) => {
         // This will change the data for text or file.
         const fileTextData = uploadType === 'text' ? FreshUpload : formDataForFileUpload(FreshUpload);
 
-        const data = await axios.post(`http://localhost:3000/${uploadType}-upload`, fileTextData, {
+        let config = {
             headers: {
                 'Content-Type': uploadType === 'text' ? 'application/json' : 'multipart/form-data'
+            },
+            onUploadProgress: progressEvent => {
+                const origSize = FreshUpload.myfile.size;
+
+                let percentage = (progressEvent.loaded / origSize) * 100;
+
+                if (percentage >= 100) percentage = 100;
+
+                state.percentage = percentage;
             }
-        });
+        }
+
+        // If the type is text, then we don't have file so we leave the progress bar!
+        if (uploadType === 'text') delete config.onUploadProgress
+
+        const data = await axios.post(`http://localhost:3000/${uploadType}-upload`, fileTextData, config);
 
         return data
     } catch (e) {
@@ -33,25 +52,38 @@ const makeUploadRequest = async (FreshUpload) => {
     }
 };
 
+const getPercentUpload = () => {
+    if (state.percentage === 100) state.percentage = 0;
+    return state.percentage;
+}
+
 const makeDownloadRequest = async (data) => {
     let obj = data;
 
     try {
-        const data = await axios({
-            method: 'post',
-            url: 'http://localhost:3000/download-info',
-            data: obj
-        });
-
+        const data = await axios.post('http://localhost:3000/download-info', obj)
+     
         return data;
     } catch (e) {
         return {
             e
         }
     }
+};
+
+
+const makeKeycodeRequest = async (keycode, type) => {
+    try {
+        const data = await axios.get(`http://localhost:3000/keycode-check?type=${type}&keycode=${keycode}`);
+        return {data};
+    } catch (e) {
+        return {e};
+    }
 }
 
 module.exports = {
     makeUploadRequest,
-    makeDownloadRequest
+    makeDownloadRequest,
+    getPercentUpload,
+    makeKeycodeRequest
 }

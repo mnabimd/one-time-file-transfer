@@ -189,10 +189,10 @@
                                 <small class="text-muted">This key will be used to find and download your file.</small>
                             </div>
 
-                            <small id="validation-msg" class="text-danger font-weight-bold"></small>
-
+                            
                             <button id="form-unbound-button" class="btn btn-secondary my-4 btn-block"
-                                type="button">Upload File</button>
+                            type="button">Upload File</button>
+                            <small id="validation-msg" class="text-danger font-weight-bold"></small>
                         </div>
 
                     </div>
@@ -275,12 +275,11 @@
     </div>
 
     <!-- File Modal -->
-    <div class="modal fade" id="file-modal" tabindex="-1" role="dialog"
-        aria-hidden="true">
+    <div class="modal fade" id="file-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" >Result Found</h5>
+                    <h5 class="modal-title">Result Found</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -300,8 +299,7 @@
         </div>
 
         <!-- Button trigger modal -->
-        <button id="file-modal-btn" style="display: none" type="button" data-toggle="modal"
-            data-target="#file-modal">
+        <button id="file-modal-btn" style="display: none" type="button" data-toggle="modal" data-target="#file-modal">
         </button>
     </div>
 

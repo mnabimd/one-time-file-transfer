@@ -33,22 +33,20 @@
     font-size: 15px;
 }
 
-
-
 #form-upload, #form-text {
     border: 1px dotted black !important;
     border-style: dashed !important;
     cursor: pointer;
 }
 
-#form-text {
+#form-text, textarea {
     font-size: 15px;
     padding-left: 7px;
     padding-top: 7px;
     cursor: text;
 }
 
-#form-text:focus {
+#form-text:focus, textarea:focus {
     outline: none !important;
 }
   

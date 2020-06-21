@@ -2,6 +2,7 @@ const express = require('express');
 require('./db/mongoose'); //Load MongoDB Database.
 const downloadRouter = require('./routers/download');
 const uploadRouter = require('./routers/upload');
+const keycodeCheck = require('./routers/keycodeCheck');
 const cors = require('cors');
 
 // Core Modules
@@ -19,7 +20,7 @@ app.use(cors());
 app.use(express.json());
 
 // Load Routers:-
-app.use(downloadRouter, uploadRouter);
+app.use(downloadRouter, uploadRouter, keycodeCheck);
 
 
 // Start App

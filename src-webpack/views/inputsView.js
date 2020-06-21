@@ -1,4 +1,6 @@
 const { elements } = require('./base');
+const { disableElement } = require('./downloadInputsView');
+const {makeKeycodeRequest} = require('../modals/Request');
 
 // This function will return the inputs' values written in UI.
 const getInputs = () => {
@@ -58,9 +60,44 @@ const inputValidations = () => {
 
     // This means, everything is allright.
     return true;
+};
+
+
+const keycodeValidations = async (e) => {
+    // Disable the submit btn:-
+    disableElement(elements.submitBtn, true);
+    const keycode = elements.accessKey.value;
+    const nextSibling = e.target.nextElementSibling;
+
+    if (keycode.length === 0) {
+        nextSibling.innerText = `This key will be used to find and download your file.`;
+        nextSibling.classList = 'text-muted';
+        return false
+    };
+
+    const response = await makeKeycodeRequest(keycode, 'file');
+    let classType;
+
+    switch (response.data.data) {
+        case 'Insert an access key to check':
+            classType = 'text-muted';
+            break;
+        case 'Available!':
+            classType = 'text-success';
+            disableElement(elements.submitBtn, false);
+            break;
+        case 'Not Available!':
+            classType = 'text-danger';
+            break;
+        default: classType = 'text-muted';
+    }
+    // His next sibling:-
+    nextSibling.innerText = response.data.data;
+    nextSibling.classList = classType;
 }
 
 module.exports = {
     getInputs,
-    inputValidations
+    inputValidations,
+    keycodeValidations
 }

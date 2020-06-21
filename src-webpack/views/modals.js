@@ -47,8 +47,12 @@ const showTextFileModal = (data) => {
     elements.textModalBtn.click();
 };
 
+const responseMessage = (data) => {
+    return data.data.status
+}
 
 module.exports = {
     showTextFileModal,
-    copyText
+    copyText,
+    responseMessage
 }

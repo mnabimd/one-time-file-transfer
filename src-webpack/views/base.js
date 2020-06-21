@@ -28,7 +28,8 @@ const elements = {
     fileModalBtn: document.getElementById('file-modal-btn'),
     fileDownload: document.getElementById('modal-download'),
     fileExpiry: document.getElementById('file-expiry'),
-    modalFilename: document.getElementById('modal-filename')
+    modalFilename: document.getElementById('modal-filename'),
+    progressBar: document.getElementById('progress-bar-upload')
 }
 
 
