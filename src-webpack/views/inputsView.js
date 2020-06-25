@@ -22,11 +22,11 @@ const getInputs = () => {
             const formTimeType = elements.formTimeBtn.textContent.trim();
 
             let multiplier;
-            if (formTimeType === 'Minutes') {
+            if (formTimeType === 'Minute') {
                 multiplier = 60 * 1000;
             } else if (formTimeType === 'Hour') {
                 multiplier = 3600 * 1000;
-            } else if (formTimeType === 'Days') {
+            } else if (formTimeType === 'Day') {
                 multiplier = 86400 * 1000;
             };
 
@@ -70,12 +70,16 @@ const keycodeValidations = async (e) => {
     const nextSibling = e.target.nextElementSibling;
 
     if (keycode.length === 0) {
-        nextSibling.innerText = `This key will be used to find and download your file.`;
+        nextSibling.innerText = `This key will be used to find and download your file/text.`;
         nextSibling.classList = 'text-muted';
         return false
     };
 
-    const response = await makeKeycodeRequest(keycode, 'file');
+    const fileDropdownSelected = elements.fileDropdown.children[0].getAttribute('aria-selected');
+
+    const type = fileDropdownSelected === 'true' ? 'file' : 'text';
+    console.log(type)
+    const response = await makeKeycodeRequest(keycode, type);
     let classType;
 
     switch (response.data.data) {

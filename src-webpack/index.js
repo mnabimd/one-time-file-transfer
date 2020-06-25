@@ -44,6 +44,8 @@ textFileDropdowns.forEach(dropdown => {
             
             elements.formFile.value = '';
             elements.draggedFileHeader.textContent = 'Drag files here or click to upload';
+            elements.accessKey.value = '';
+            elements.accessKey.click();
 
             // Stop the function.
             return false;
@@ -51,17 +53,22 @@ textFileDropdowns.forEach(dropdown => {
 
         // Default:
         elements.formText.value = '';
-    }
+        elements.accessKey.value = '';
+        elements.accessKey.click();
+    };
 });
 
-const events = ['blur', 'focus', 'keyup'];
+const events = ['blur', 'focus', 'keyup', 'click'];
 
 events.forEach(event => {
     elements.accessKey.addEventListener(event, keycodeValidations);
 });
 
+
 // When the submit BTN (Upload) is clicked:-
 elements.submitBtn.addEventListener('click', async (e) => {
+    // Reset Access key value:
+
     // Remove the progress first!
     resetProgressbar();
 
@@ -98,7 +105,9 @@ elements.submitBtn.addEventListener('click', async (e) => {
         disableElement(e.target, false);
         successProgressbar();
     };
-
+    
+    // Delete The Accesskey written in the input.
+    elements.accessKey.value = '';
     textApplier(elements.validationMsg, 'text-muted', responseMessage(data));
 
 });

@@ -3,6 +3,7 @@ require('./db/mongoose'); //Load MongoDB Database.
 const downloadRouter = require('./routers/download');
 const uploadRouter = require('./routers/upload');
 const keycodeCheck = require('./routers/keycodeCheck');
+const { job } = require('./crons/autoDelete');
 const cors = require('cors');
 
 // Core Modules
@@ -22,6 +23,8 @@ app.use(express.json());
 // Load Routers:-
 app.use(downloadRouter, uploadRouter, keycodeCheck);
 
+// Set Crons: Each minute, search for expired texts or files:-
+job.start();
 
 // Start App
 app.listen(PORT, () => {
