@@ -5,8 +5,6 @@ const path = require('path');
 const CronJob = require('cron').CronJob;
 
 const storagePath = path.join(__dirname, '../../Storage');
-let count = 0;
-
 // New timestamps:-
 const newTimestamp = () => new Date().getTime() / 1000;
 
@@ -29,7 +27,7 @@ const deleteFiles = async () => {
         
         // Delete their file source on Storage:-
         fs.unlink(`${storagePath}/${filename}`, (e) => {
-            if (e) throw e;
+            if (e) console.log(e);
         });
 
         // Now remove it:-

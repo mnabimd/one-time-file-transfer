@@ -8,6 +8,7 @@
     "devWebpack": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
     "start": "node src-server/app.js",
+    "startLocal": "env-cmd -f ./config/dev.env node src-server/app.js",
     "watch:server": "webpack -d --watch",
     "watch:build": "env-cmd -f ./config/dev.env nodemon ./src-server/app.js"
   },

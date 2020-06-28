@@ -1,6 +1,7 @@
 const {
     elements
 } = require('./base');
+const dotEnv = require('../config/env');
 
 const copyText = (textArea) => {
     textArea.select();
@@ -20,10 +21,9 @@ const showTextFileModal = (data) => {
     if (!data.attachment.text) {
         // File Modal
 
-
         // File name to the modal:-
         elements.modalFilename.innerHTML = `${data.attachment.fileInfo.originalname.toUpperCase()} <small class="text-muted" style="font-size: 12px">${bytesToSize(data.attachment.fileInfo.size)}</small>`;
-        elements.fileDownload.href = `http://localhost:3000${data.downloadLink}`;
+        elements.fileDownload.href = `${dotEnv.HOST}/${data.downloadLink}`;
         elements.fileExpiry.children[0].textContent = data.expiresOn;
 
         elements.fileModalBtn.click();

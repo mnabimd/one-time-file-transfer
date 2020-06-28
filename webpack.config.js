@@ -1,7 +1,7 @@
 const path = require('path');
+const webpack = require('webpack');
 
 // If you want webpack own html web pack then in terminal: npm i html-webpack-plugin --save-dev.
-
 module.exports = {
     entry: ['babel-polyfill', './src-webpack/index.js'],
     output: {
@@ -12,7 +12,7 @@ module.exports = {
         contentBase: './public'
     },
     plugins: [
-        // Insert New Plugins Here: e.g: html-webpack-plugin
+        
     ],
     module: {
         rules: [
@@ -26,3 +26,4 @@ module.exports = {
         ]
     }
 };
+

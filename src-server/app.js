@@ -5,11 +5,11 @@ const uploadRouter = require('./routers/upload');
 const keycodeCheck = require('./routers/keycodeCheck');
 const { job } = require('./crons/autoDelete');
 const cors = require('cors');
+const startupParams = require('./startup/start.js');
 
 // Core Modules
 const path = require('path');
 
-const PORT = process.env.PORT;
 const app = express();
 
 // Public Directory:
@@ -27,6 +27,4 @@ app.use(downloadRouter, uploadRouter, keycodeCheck);
 job.start();
 
 // Start App
-app.listen(PORT, () => {
-    console.log('App started on PORT ' + PORT)
-});
+app.listen(...startupParams(process.env.PORT));

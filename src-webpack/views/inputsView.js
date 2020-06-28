@@ -78,7 +78,6 @@ const keycodeValidations = async (e) => {
     const fileDropdownSelected = elements.fileDropdown.children[0].getAttribute('aria-selected');
 
     const type = fileDropdownSelected === 'true' ? 'file' : 'text';
-    console.log(type)
     const response = await makeKeycodeRequest(keycode, type);
     let classType;
 

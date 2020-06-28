@@ -146,4 +146,4 @@ elements.accessKeyDwnBtn.addEventListener('click', async (e) => {
 
 });
 
-console.log('Client-Side JS Loaded.')
+console.log('Client-Side JS Loaded.', process.env.HOST)

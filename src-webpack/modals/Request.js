@@ -1,4 +1,5 @@
 const axios = require('axios');
+const dotEnv = require('../config/env');
 
 // For Sending and receving some data!
 const state = {
@@ -42,7 +43,7 @@ const makeUploadRequest = async (FreshUpload) => {
         // If the type is text, then we don't have file so we leave the progress bar!
         if (uploadType === 'text') delete config.onUploadProgress
 
-        const data = await axios.post(`http://localhost:3000/${uploadType}-upload`, fileTextData, config);
+        const data = await axios.post(`${dotEnv.HOST}/${uploadType}-upload`, fileTextData, config);
 
         return data
     } catch (e) {
@@ -61,8 +62,7 @@ const makeDownloadRequest = async (data) => {
     let obj = data;
 
     try {
-        const data = await axios.post('http://localhost:3000/download-info', obj)
-     
+        const data = await axios.post(`${dotEnv.HOST}/download-info`, obj)
         return data;
     } catch (e) {
         return {
@@ -74,7 +74,7 @@ const makeDownloadRequest = async (data) => {
 
 const makeKeycodeRequest = async (keycode, type) => {
     try {
-        const data = await axios.get(`http://localhost:3000/keycode-check?type=${type}&keycode=${keycode}`);
+        const data = await axios.get(`${dotEnv.HOST}/keycode-check?type=${type}&keycode=${keycode}`);
         return {data};
     } catch (e) {
         return {e};
