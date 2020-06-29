@@ -6,6 +6,17 @@ const keycodeCheck = require('./routers/keycodeCheck');
 const { job } = require('./crons/autoDelete');
 const cors = require('cors');
 const startupParams = require('./startup/start.js');
+const { createLogger, transports } = require('winston');
+
+// Enable exception handling when you create your logger.
+const logger = createLogger({
+    transports: [
+      new transports.File({ filename: 'src-server/logs/combined.log' }) 
+    ],
+    exceptionHandlers: [
+      new transports.File({ filename: 'src-server/logs/exceptions.log' })
+    ]
+});
 
 // Core Modules
 const path = require('path');

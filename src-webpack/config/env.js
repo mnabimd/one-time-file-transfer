@@ -2,7 +2,7 @@ const dotEnv = () => {
     let variables = {};
 
     if (window.location.hostname != 'localhost') {
-        variables.HOST = 'codezune.com'
+        variables.HOST = 'https://tempy.codezune.com'
     } else {
         variables.HOST = 'http://localhost:3000'
     }
