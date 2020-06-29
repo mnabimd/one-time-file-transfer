@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URL, {
+mongoose.connect("mongodb+srv://mohammadnabi:Afghan321@clusterfree.oikmt.mongodb.net/one-time-file-transfer-api?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
