@@ -8,7 +8,7 @@ log4js.configure({
 
 const logger = log4js.getLogger('cheese');
 
-mongoose.connect('mongodb+srv://mohammad:Afghan321@cluster0.d2iyo.mongodb.net/transfer-api?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://mohammadnabi:Afghan321@clusterfree.oikmt.mongodb.net/one-time-file-transfer-api?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
@@ -19,4 +19,3 @@ mongoose.connect('mongodb+srv://mohammad:Afghan321@cluster0.d2iyo.mongodb.net/tr
     console.log(e);
     logger.error(e);
 });
-

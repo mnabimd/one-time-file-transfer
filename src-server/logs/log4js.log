@@ -1,0 +1,14 @@
+[2020-06-30T11:48:19.805] [ERROR] cheese - Error: querySrv ESERVFAIL _mongodb._tcp.cluster0.d2iyo.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (dns.js:202:19) {
+  errno: 'ESERVFAIL',
+  code: 'ESERVFAIL',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.d2iyo.mongodb.net'
+}
+[2020-06-30T11:48:58.139] [ERROR] cheese - Error: querySrv ESERVFAIL _mongodb._tcp.cluster0.d2iyo.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (dns.js:202:19) {
+  errno: 'ESERVFAIL',
+  code: 'ESERVFAIL',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.cluster0.d2iyo.mongodb.net'
+}
