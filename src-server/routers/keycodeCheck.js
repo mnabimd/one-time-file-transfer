@@ -14,7 +14,11 @@ router.get('/keycode-check', async (req, res) => {
 
     const TextFile = type === 'file' ? File : Text;
 
-    const recKeycode = await TextFile.findOne({keycode});
+    const recKeycode = await TextFile.findOne({
+        where: {
+            keycode
+        }
+    });
 
     if (!recKeycode) return res.status(200).send('Available!');
 

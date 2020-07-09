@@ -13,7 +13,7 @@ router.post('/download-info', auth, async (req, res) => {
 
     // Then this is a file:-
     if (!data.attachment.text) {
-        data.downloadLink = `/download/${data.attachment.fileInfo.filename}`;
+        data.downloadLink = `download/${data.attachment.fileInfo.filename}`;
     }
 
     res.send(data)

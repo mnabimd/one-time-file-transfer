@@ -3,6 +3,7 @@ const Text = require('../models/Text');
 const fs = require('fs');
 const path = require('path');
 const CronJob = require('cron').CronJob;
+const {Op} = require('sequelize');
 
 const storagePath = path.join(__dirname, '../../Storage');
 // New timestamps:-
@@ -10,13 +11,44 @@ const newTimestamp = () => new Date().getTime() / 1000;
 
 // Delete Texts
 const deleteText = async () => {
-    const text = await Text.deleteMany({deleteTime: { $lt: newTimestamp() }});
+    const text = await Text.destroy({
+        where: {
+            deleteTime: {
+                [Op.lt]: newTimestamp()
+            }
+        }
+    })
 };
 
 // Delete Files
 const deleteFiles = async () => {
     // Find Files' FileInfo -> filename:-
-    const files = await File.find({deleteTime: { $lt :newTimestamp() }});
+    const files = await File.findAll({
+        where: {
+            deleteTime: {
+                [Op.lt]: newTimestamp()
+            }
+        }
+    });
+
+    // Let's convert each (file)'fileInfo to a real Obj:
+    files.forEach(file => {
+        delete file.fileInfo;
+
+        const fileInfoArray = file.fileInfo.split('|--|');
+        const fileInfo = {
+            fieldname: fileInfoArray[0],
+            originalname: fileInfoArray[1],
+            encoding: fileInfoArray[2],
+            mimetype: fileInfoArray[3],
+            destination: fileInfoArray[4],
+            filename: fileInfoArray[5],
+            path: fileInfoArray[6],
+            size: fileInfoArray[7]
+        };
+
+        file.fileInfo = fileInfo;
+    });
 
     // If no file found stop:-
     if (files.length === 0) return false;
@@ -31,7 +63,8 @@ const deleteFiles = async () => {
         });
 
         // Now remove it:-
-        await file.remove();
+        // console.log(file, file.prototype)
+        await file.destroy();
     });
 };
 

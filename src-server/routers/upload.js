@@ -16,6 +16,7 @@ const storage = multer.diskStorage({
     }
 });
 
+
 const upload = multer({
     storage
 });
@@ -25,10 +26,15 @@ const router = new express.Router();
 
 router.post('/file-upload', upload.single('myfile'), async (req, res) => {
     try {
-        const file = new File({
+
+        var id = uniqueString().slice(0, 12);
+    
+        const fileInfoToArray = Object.values(req.file).join('|--|');
+        const file = await File.create({
+            id,
             keycode: req.body.keycode,
             deleteTime: req.body.deleteTime,
-            fileInfo: req.file
+            fileInfo: fileInfoToArray
         });
 
         await file.save();
@@ -46,15 +52,16 @@ router.post('/file-upload', upload.single('myfile'), async (req, res) => {
 
 router.post('/text-upload', async (req, res) => {
     try {
-        const text = new Text(req.body);
+        var id = uniqueString().slice(0, 12);
 
-        await text.save();
+        const text = await Text.create({id, ...req.body});
+        
         res.status(200).send({
             text,
             status: 'Your text has been uploaded successfully!'
         });
     } catch (e) {
-        res.status(400).send(e)
+        res.status(400).send({e, data: {id, ...req.body}})
     }
 })
 

@@ -12,3 +12,67 @@
   syscall: 'querySrv',
   hostname: '_mongodb._tcp.cluster0.d2iyo.mongodb.net'
 }
+[2020-07-06T11:15:00.014] [ERROR] cheese - Error: querySrv ESERVFAIL _mongodb._tcp.clusterfree.oikmt.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (dns.js:202:19) {
+  errno: 'ESERVFAIL',
+  code: 'ESERVFAIL',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.clusterfree.oikmt.mongodb.net'
+}
+[2020-07-07T13:41:35.232] [ERROR] cheese - MongoParseError: Invalid connection string
+    at parseConnectionString (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\core\uri_parser.js:547:21)
+    at connect (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\operations\connect.js:277:3)
+    at C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\mongo_client.js:222:5
+    at maybePromise (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\utils.js:719:3)
+    at MongoClient.connect (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\mongo_client.js:218:10)
+    at C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongoose\lib\connection.js:716:12
+    at new Promise (<anonymous>)
+    at NativeConnection.Connection.openUri (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongoose\lib\connection.js:709:19)
+    at Mongoose.connect (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongoose\lib\index.js:335:15)
+    at Object.<anonymous> (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\src-server\db\mongoose.js:11:10)
+    at Module._compile (internal/modules/cjs/loader.js:956:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:973:10)
+    at Module.load (internal/modules/cjs/loader.js:812:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:724:14)
+    at Module.require (internal/modules/cjs/loader.js:849:19)
+    at require (internal/modules/cjs/helpers.js:74:18) {
+  name: 'MongoParseError'
+}
+[2020-07-07T13:42:11.092] [ERROR] cheese - MongoParseError: Invalid connection string
+    at parseConnectionString (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\core\uri_parser.js:547:21)
+    at connect (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\operations\connect.js:277:3)
+    at C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\mongo_client.js:222:5
+    at maybePromise (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\utils.js:719:3)
+    at MongoClient.connect (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\mongo_client.js:218:10)
+    at C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongoose\lib\connection.js:716:12
+    at new Promise (<anonymous>)
+    at NativeConnection.Connection.openUri (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongoose\lib\connection.js:709:19)
+    at Mongoose.connect (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongoose\lib\index.js:335:15)
+    at Object.<anonymous> (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\src-server\db\mongoose.js:11:10)
+    at Module._compile (internal/modules/cjs/loader.js:956:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:973:10)
+    at Module.load (internal/modules/cjs/loader.js:812:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:724:14)
+    at Module.require (internal/modules/cjs/loader.js:849:19)
+    at require (internal/modules/cjs/helpers.js:74:18) {
+  name: 'MongoParseError'
+}
+[2020-07-07T13:42:14.287] [ERROR] cheese - MongoParseError: Invalid connection string
+    at parseConnectionString (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\core\uri_parser.js:547:21)
+    at connect (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\operations\connect.js:277:3)
+    at C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\mongo_client.js:222:5
+    at maybePromise (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\utils.js:719:3)
+    at MongoClient.connect (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongodb\lib\mongo_client.js:218:10)
+    at C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongoose\lib\connection.js:716:12
+    at new Promise (<anonymous>)
+    at NativeConnection.Connection.openUri (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongoose\lib\connection.js:709:19)
+    at Mongoose.connect (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\node_modules\mongoose\lib\index.js:335:15)
+    at Object.<anonymous> (C:\Users\Mohammad Nabi\Desktop\Web Projects\Web Development 2020\Mohammad Nabi Own Projects\One Time File Transfer\src-server\db\mongoose.js:11:10)
+    at Module._compile (internal/modules/cjs/loader.js:956:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:973:10)
+    at Module.load (internal/modules/cjs/loader.js:812:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:724:14)
+    at Module.require (internal/modules/cjs/loader.js:849:19)
+    at require (internal/modules/cjs/helpers.js:74:18) {
+  name: 'MongoParseError'
+}

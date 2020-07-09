@@ -1,26 +1,51 @@
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 
-const fileSchema = new mongoose.Schema({
+// const fileSchema = new mongoose.Schema({
+//     keycode: {
+//         type: String,
+//         required: true,
+//         trim: true,
+//         unique: true
+//     },
+//     deleteTime: {
+//         type: Number,
+//         required: true,
+//         trim: true
+//     },
+//     fileInfo: {
+//         type: JSON,
+//         required: true,
+//         trim: true
+//     }
+// }, {
+//     timestamps: true
+// });
+
+// const File = mongoose.model('file', fileSchema);
+const Sequelize = require('sequelize');
+const sequelize = require('../db/connection');
+
+const File = sequelize.define("File", {
+    id: {
+        type: Sequelize.CHAR(11),
+        allowNull: false,
+        unique: true,
+        primaryKey: true
+    },
     keycode: {
-        type: String,
-        required: true,
-        trim: true,
-        unique: true
+        type: Sequelize.STRING(11),
+        allowNull: false,
+        unique: true,
+        trim: true
     },
     deleteTime: {
-        type: Number,
-        required: true,
+        type: Sequelize.INTEGER,
+        allowNull: false,
         trim: true
     },
     fileInfo: {
-        type: JSON,
-        required: true,
-        trim: true
+        type: Sequelize.TEXT
     }
-}, {
-    timestamps: true
-});
-
-const File = mongoose.model('file', fileSchema);
+})
 
 module.exports = File;

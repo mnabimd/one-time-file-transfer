@@ -1,35 +1,29 @@
-const mongoose = require('mongoose');
+const Sequelize = require('sequelize');
+const sequelize = require('../db/connection');
 
-const textSchema = new mongoose.Schema({
+const Text = sequelize.define("Text", {
+    id: {
+        type: Sequelize.CHAR(11),
+        allowNull: false,
+        unique: true,
+        primaryKey: true
+    },
     text: {
-        type: String,
-        required: true,
-        trim: true
+        type: Sequelize.TEXT,
+        allowNull: false,
+        trim: true,
     },
     keycode: {
-        type: String,
-        required: true,
-        trim: true,
-        unique: true
+        type: Sequelize.STRING(11),
+        allowNull: false,
+        unique: true,
+        trim: true
     },
     deleteTime: {
-        type: Number,
-        required: true,
+        type: Sequelize.INTEGER,
+        allowNull: false,
         trim: true
     }
-}, {
-    timestamps: true
-});
-
-// textSchema.methods.toJSON = function() {
-//     const text = this;
-//     // Text is a JSON object rightnow. Let's convert it to real object.
-//     const textObj = text.toObject();
-//     delete textObj.keycode;
-
-//     return textObj;
-// }
-
-const Text = mongoose.model('text', textSchema);
+})
 
 module.exports = Text

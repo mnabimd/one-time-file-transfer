@@ -1,5 +1,5 @@
 const express = require('express');
-require('./db/mongoose'); //Load MongoDB Database.
+require('./db/connection'); //Load Sequelize Database.
 const downloadRouter = require('./routers/download');
 const uploadRouter = require('./routers/upload');
 const keycodeCheck = require('./routers/keycodeCheck');
@@ -21,7 +21,8 @@ app.use(cors());
 app.use(express.json());
 
 // Load Routers:-
-app.use(downloadRouter, uploadRouter, keycodeCheck);
+// app.use(downloadRouter, uploadRouter, keycodeCheck);
+app.use(uploadRouter, downloadRouter, keycodeCheck);
 
 // Set Crons: Each minute, search for expired texts or files:-
 job.start();
