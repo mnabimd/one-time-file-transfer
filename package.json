@@ -11,8 +11,8 @@
     "startLocal": "env-cmd -f ./config/dev.env node src-server/app.js",
     "watch:server": "webpack -d --watch",
     "watch:build": "env-cmd -f ./config/dev.env nodemon ./src-server/app.js",
-    "seqMigrate": "sequelize db:migrate",
-    "seqMigrateUndoAll": "sequelize db:migrate:undo:all"
+    "seqMigrate": "sequelize db:migrate --env production",
+    "seqMigrateUndoAll": "sequelize db:migrate:undo:all --env production"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
