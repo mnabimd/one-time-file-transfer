@@ -23,7 +23,7 @@
 
 // const File = mongoose.model('file', fileSchema);
 const Sequelize = require('sequelize');
-const sequelize = require('../db/connection');
+const {sequelize} = require('../db/connection');
 
 const File = sequelize.define("File", {
     id: {

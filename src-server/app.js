@@ -1,8 +1,13 @@
 const express = require('express');
-require('./db/connection'); //Load Sequelize Database.
+const {sequelize} = require('./db/connection'); //Load Sequelize Database.
+
+// Routers:-
 const downloadRouter = require('./routers/download');
 const uploadRouter = require('./routers/upload');
 const keycodeCheck = require('./routers/keycodeCheck');
+const {router: connectionRouter} = require('./db/connection');
+
+// Cron Jobs
 const { job } = require('./crons/autoDelete');
 const cors = require('cors');
 const startupParams = require('./startup/start.js');
@@ -22,7 +27,7 @@ app.use(express.json());
 
 // Load Routers:-
 // app.use(downloadRouter, uploadRouter, keycodeCheck);
-app.use(uploadRouter, downloadRouter, keycodeCheck);
+app.use(uploadRouter, downloadRouter, keycodeCheck, connectionRouter);
 
 // Set Crons: Each minute, search for expired texts or files:-
 job.start();
