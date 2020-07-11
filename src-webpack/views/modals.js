@@ -2,6 +2,7 @@ const {
     elements
 } = require('./base');
 const dotEnv = require('../config/env');
+const moment = require('moment');
 
 const copyText = (textArea) => {
     textArea.select();
@@ -24,7 +25,14 @@ const showTextFileModal = (data) => {
         // File name to the modal:-
         elements.modalFilename.innerHTML = `${data.attachment.fileInfo.originalname.toUpperCase()} <small class="text-muted" style="font-size: 12px">${bytesToSize(data.attachment.fileInfo.size)}</small>`;
         elements.fileDownload.href = `${dotEnv.HOST}/${data.downloadLink}`;
-        elements.fileExpiry.children[0].textContent = data.expiresOn;
+
+        const date = new Date(data.expiresOn);
+        console.log(data.expiresOn)
+        console.log(date)
+
+        const time = moment(date).format('YYYY-MM-DD - hh:mm a')
+        console.log(time)
+        elements.fileExpiry.children[0].textContent = time;
 
         elements.fileModalBtn.click();
         return false;
@@ -36,7 +44,8 @@ const showTextFileModal = (data) => {
 
     // Paste Data.attachment.text into the textarea:-
     elements.textModalTextarea.value = data.attachment.text;
-    elements.textExpiry.children[0].textContent = data.expiresOn
+    const time = moment(data.expiresOn).format('YYYY-MM-DD - hh:mm a');
+    elements.textExpiry.children[0].textContent = time
 
     // When the copy text button is clicked, copy the text area content into to the clipboard
     elements.copyTextBtn.addEventListener('click', (e) => {

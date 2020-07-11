@@ -28,10 +28,7 @@ const auth = async (req, res, next) => {
             // Set Timestamps:-
             const timestamp = parseInt(textFile.deleteTime);
 
-            const timestampToUTC = new Date(timestamp * 1000).toUTCString();
-            const x = new Date(timestampToUTC);
-
-            const timeData = moment(x).format('YYYY-MM-DD - hh:mm a')
+            const timeData = timestamp * 1000
             req.expiresOn = timeData;
         } else if (req.body.request === 'file') {
             textFile = await File.findOne({
@@ -64,7 +61,7 @@ const auth = async (req, res, next) => {
 
             // Set timestamps:
             const timestamp = parseInt(textFile.deleteTime);
-            const timeData = moment(timestamp * 1000).format('YYYY-MM-DD - hh:mm a')
+            const timeData = timestamp * 1000
             req.expiresOn = timeData;
         }
 
