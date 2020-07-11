@@ -1,5 +1,3 @@
-const { elements } = require('../views/base');
-
 const convertToTextOrFile = (obj) => {
     let newObj = {
         keycode: obj.accessKey,

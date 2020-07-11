@@ -12,6 +12,8 @@ const getInputs = () => {
 
     // This function will calculate the current timestamp + the more time user elected in the input.
     const deleteTime = () => {
+
+        const lt = new Date();
         const timestamp = new Date().getTime();
 
         const moreTime = () => {
