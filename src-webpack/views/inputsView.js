@@ -2,10 +2,6 @@ const { elements } = require('./base');
 const { disableElement } = require('./downloadInputsView');
 const {makeKeycodeRequest} = require('../modals/Request');
 
-const timeToUTC = () => {
-
-}
-
 // This function will return the inputs' values written in UI.
 const getInputs = () => {
     let values = {
@@ -17,9 +13,7 @@ const getInputs = () => {
     // This function will calculate the current timestamp + the more time user elected in the input.
     const deleteTime = () => {
 
-        const lt = new Date();
-        // A UTC timestamp!
-        const timestamp = new Date(lt.getUTCFullYear(), lt.getUTCMonth(), lt.getUTCDate(), lt.getUTCHours(), lt.getUTCMinutes(), lt.getUTCSeconds()).getTime();
+        const timestamp = new Date().getTime()
 
         const moreTime = () => {
             // This is the value written in the input:
