@@ -1,4 +1,4 @@
 node_modules
 Storage
 config/prod.env
-src-server/logs
+src-server/logger
