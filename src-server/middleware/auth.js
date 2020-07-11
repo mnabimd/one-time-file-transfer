@@ -2,15 +2,6 @@ const Text = require('../models/Text');
 const File = require('../models/File');
 const moment = require('moment');
 const logger = require('../logger/log');
-const { time } = require('cron');
-
-const timeConverter = (deleteTime) => {
-    const time = new Date(deleteTime * 1000);
-    const timeToUTC = time.toUTCString();
-
-    return timeToUTC
-}
-
 
 const auth = async (req, res, next) => {
     try {
@@ -37,7 +28,7 @@ const auth = async (req, res, next) => {
             // Set Timestamps:-
             const timestamp = parseInt(textFile.deleteTime);
 
-            const timeData = moment(new Date(timeConverter(timestamp)).toString() ).format('YYYY-MM-DD - hh:mm a')
+            const timeData = moment(new Date(timestamp * 1000)).format('YYYY-MM-DD - hh:mm a')
             req.expiresOn = timeData;
         } else if (req.body.request === 'file') {
             textFile = await File.findOne({

@@ -15,14 +15,15 @@ router.get('/global', (req, res) => {
             minUTC: date.getUTCMinutes(),
             hourUTC: date.getUTCHours(),
             fullDate: date,
-            fullDateUTC: moment(new Date(dateToUTC).toString()).format('YYYY-MM-DD - hh:mm a'),
+            fullDateUTC: moment(new Date(dateToUTC)).format('YYYY-MM-DD - hh:mm a'),
             dateUTC: new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()),
             get utcTimestamp() {
                 return this.dateUTC.getTime()
             },
             get utcTimestampToString() {
                 return moment(this.utcTimestamp).format('YYYY-MM-DD - hh:mm a')
-            }
+            },
+            dateToUTC: dateToUTC
         }
     })
 });
