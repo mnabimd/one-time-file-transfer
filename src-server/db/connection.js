@@ -13,7 +13,7 @@ log4js.configure({
 
 const logger = log4js.getLogger('cheese');
 
-const sequelize =  new Sequelize('codemfhv_nodeapps', 'codemfhv_codemfhv', '3xVhU7E-89x%', { host: 'localhost:3306', dialect: 'mysql', operatorsAliases: 0, logging: false});
+const sequelize =  new Sequelize('codemfhv_nodeapps', 'codemfhv_codemfhv', '3xVhU7E-89x%', { host: 'localhost', dialect: 'mysql', operatorsAliases: 0, logging: false});
 
 const connectStatus = sequelize.authenticate().then(function(){
     console.log('Connected Successfully!');
