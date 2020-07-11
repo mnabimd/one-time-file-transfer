@@ -6,6 +6,7 @@ const downloadRouter = require('./routers/download');
 const uploadRouter = require('./routers/upload');
 const keycodeCheck = require('./routers/keycodeCheck');
 const {router: connectionRouter} = require('./db/connection');
+const globalRouter = require('./routers/global');
 
 // Cron Jobs
 const { job } = require('./crons/autoDelete');
@@ -27,7 +28,7 @@ app.use(express.json());
 
 // Load Routers:-
 // app.use(downloadRouter, uploadRouter, keycodeCheck);
-app.use(uploadRouter, downloadRouter, keycodeCheck, connectionRouter);
+app.use(uploadRouter, downloadRouter, keycodeCheck, connectionRouter, globalRouter);
 
 // Set Crons: Each minute, search for expired texts or files:-
 job.start();
