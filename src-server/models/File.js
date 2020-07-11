@@ -25,7 +25,7 @@
 const Sequelize = require('sequelize');
 const {sequelize} = require('../db/connection');
 
-const File = sequelize.define("File", {
+const File = sequelize.define("files", {
     id: {
         type: Sequelize.CHAR(11),
         allowNull: false,

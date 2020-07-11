@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const {sequelize} = require('../db/connection');
 
-const Text = sequelize.define("Text", {
+const Text = sequelize.define("texts", {
     id: {
         type: Sequelize.CHAR(11),
         allowNull: false,
