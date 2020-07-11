@@ -9,7 +9,7 @@ const {router: connectionRouter} = require('./db/connection');
 const globalRouter = require('./routers/global');
 
 // Cron Jobs
-// const { job } = require('./crons/autoDelete');
+const { job } = require('./crons/autoDelete');
 const cors = require('cors');
 const startupParams = require('./startup/start.js');
 
@@ -31,7 +31,7 @@ app.use(express.json());
 app.use(uploadRouter, downloadRouter, keycodeCheck, connectionRouter, globalRouter);
 
 // Set Crons: Each minute, search for expired texts or files:-
-// job.start();
+job.start();
 
 // Start App
 app.listen(...startupParams(process.env.PORT));

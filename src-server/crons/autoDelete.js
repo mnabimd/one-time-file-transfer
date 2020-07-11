@@ -8,8 +8,7 @@ const {Op} = require('sequelize');
 const storagePath = path.join(__dirname, '../../Storage');
 // New timestamps:-
 const newTimestamp = () => {
-    const lt = new Date();
-    const timestamp = new Date(lt.getUTCFullYear(), lt.getUTCMonth(), lt.getUTCDate(), lt.getUTCHours(), lt.getUTCMinutes(), lt.getUTCSeconds()).getTime();
+    const timestamp = new Date().getTime() / 1000
 
     return timestamp;
 };
