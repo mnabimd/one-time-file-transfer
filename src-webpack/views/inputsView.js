@@ -80,6 +80,7 @@ const keycodeValidations = async (e) => {
 
     const type = fileDropdownSelected === 'true' ? 'file' : 'text';
     const response = await makeKeycodeRequest(keycode, type);
+    console.log(response)
     let classType;
 
     switch (response.data.data) {

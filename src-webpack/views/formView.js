@@ -51,19 +51,17 @@ const resetProgressbar = () => {
 
     progressBar.setAttribute('complete', 'no');
     progressBar.innerText = '0%';
-    progressBar.style.width = '%';
+    progressBar.style.width = '0%';
 }
 
 const updateProgressbar = (percent) => {
 
     const interval = setInterval(function() {
         let percentage = parseInt(percent());
-        console.log(percentage)
         
-        if (percentage >= 100) percentage = 100;
+        if (percentage >= 100) percentage = 99;
         
         const progressbar = document.getElementById('progress-bar-upload');
-        console.log(progressbar.getAttribute('complete'))
         if (progressbar.getAttribute('complete') === 'no')  {
             progressbar.style.width = `${percentage}%`;
             progressbar.innerText = `${percentage}%`;
@@ -75,11 +73,27 @@ const updateProgressbar = (percent) => {
 
 };
 
+const deleteProgressbar = () => {
+    const accessGroup = Array.from(document.getElementsByClassName('access-group')[0].children);
+    
+    // Search Children and find Progressbar:-
+    const progressBar = accessGroup.filter(child => {
+        return child.className === 'progress'
+    });
+
+    // Meaning that there is an elemnt with a class list!
+    if (progressBar.length != 0) {
+        const progress = document.getElementById('progress-bar-upload').parentElement;
+        progress.remove()
+    }
+    
+}
 
 module.exports = {
     renameHeaderName,
     updateProgressbar,
     renderProgressbar,
     successProgressbar,
-    resetProgressbar
+    resetProgressbar,
+    deleteProgressbar
 }

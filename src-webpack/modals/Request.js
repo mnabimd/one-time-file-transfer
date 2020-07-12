@@ -36,6 +36,7 @@ const makeUploadRequest = async (FreshUpload) => {
 
                 if (percentage >= 100) percentage = 100;
 
+                // If Percentage was 100 before by another upload? Then when new one is pressed, the state.percentate will be 0, because it's the start of the download and now data has been sent.
                 state.percentage = percentage;
             }
         }
@@ -54,7 +55,6 @@ const makeUploadRequest = async (FreshUpload) => {
 };
 
 const getPercentUpload = () => {
-    if (state.percentage === 100) state.percentage = 0;
     return state.percentage;
 }
 

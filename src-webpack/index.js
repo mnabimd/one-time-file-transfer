@@ -1,7 +1,7 @@
 const { elements } = require('./views/base');
 const { getInputs, inputValidations, keycodeValidations } = require('./views/inputsView');
 const { getAccesskey, disableElement } = require('./views/downloadInputsView');
-const { renameHeaderName, renderProgressbar, updateProgressbar, successProgressbar, resetProgressbar } = require('./views/formView');
+const { renameHeaderName, renderProgressbar, updateProgressbar, successProgressbar, resetProgressbar, deleteProgressbar } = require('./views/formView');
 const { convertToTextOrFile } = require('./modals/DataConverter');
 const Upload = require('./modals/Upload');
 const { makeUploadRequest, makeDownloadRequest, getPercentUpload } = require('./modals/Request');
@@ -46,6 +46,8 @@ textFileDropdowns.forEach(dropdown => {
             elements.draggedFileHeader.textContent = 'Drag files here or click to upload';
             elements.accessKey.value = '';
             elements.accessKey.click();
+            deleteProgressbar();
+            textApplier(elements.validationMsg, 'text-muted');
 
             // Stop the function.
             return false;
@@ -58,12 +60,11 @@ textFileDropdowns.forEach(dropdown => {
     };
 });
 
-const events = ['blur', 'focus', 'keyup', 'click'];
-
+// Keycode Check:-
+const events = ['keyup', 'click'];
 events.forEach(event => {
     elements.accessKey.addEventListener(event, keycodeValidations);
 });
-
 
 // When the submit BTN (Upload) is clicked:-
 elements.submitBtn.addEventListener('click', async (e) => {
@@ -94,12 +95,13 @@ elements.submitBtn.addEventListener('click', async (e) => {
         renderProgressbar(e.target);
         //  3> Update the percentage each 100ms:-
         // Note: getPercentUpload is a function, and it will be called each 100ms later in updatProgressbar in order to get the real-time percentage number.
+        
         updateProgressbar(getPercentUpload);
     }
     
     // 3. Let's send the data with HTTP request by AXIOS:-
     const data = await makeUploadRequest(upload);
-    
+
     if (upload.myfile) {
         // Data/Response recieved? Enable The Upload Button and remove progress bar:-
         disableElement(e.target, false);
@@ -146,4 +148,4 @@ elements.accessKeyDwnBtn.addEventListener('click', async (e) => {
 
 });
 
-console.log('Client-Side JS Loaded.', process.env.HOST)
+console.log('Client-Side JS Loaded.')
