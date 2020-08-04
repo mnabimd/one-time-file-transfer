@@ -15,7 +15,10 @@
         content="Tempy Transfer helps you transfer your files, text or links, temporarly. NO ACCOUNT REQUIRED. Just upload a file, and download it with an Access-Key." />
     <meta property="og:url" content="https://tempy.codezune.com" />
     <meta property="og:site_name" content="Tempy Transfer" />
-
+    
+    <!-- Indexing -->
+    <meta name="robots" content="index, follow">
+    
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Krub:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -56,15 +59,14 @@
     <title>Tempy Transfer: Temporarly Transfer Your Files & Texts</title>
 </head>
 
-<body class="bg-light">
+<body>
     <!-- START HERE -->
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light py-3">
+    <nav class="navbar navbar-expand-md navbar-light bg-white py-3">
         <div class="container">
             <div class="navbar-brand">
-                <a class="m-0 font-weight-bold h3 text-dark" target="_blank"
-                    href="https://tempy.codezune.com">Tempy</a>
+                <a class="m-0 font-weight-bold h3 text-dark" target="_blank" href="https://tempy.codezune.com">Tempy</a>
             </div>
 
             <button class="navbar-toggler float-right" data-target="#navbarmy" data-toggle="collapse">
@@ -77,24 +79,25 @@
                     <li class="nav-item">
                         <a target="_blank" href="https://codezune.com" class="nav-link active">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="https://codezune.com/blog" target="_blank" class="nav-link">Blogs</a>
+                    <li class="nav-item dropdown">
+                        <a href="https://codezune.com/blog" data-toggle="dropdown" target="_blank"
+                            class="nav-link dropdown-toggle">Apps</a>
+                        <div class="dropdown-menu">
+                            <a href="" class="dropdown-item">PhotoMillion</a>
+                            <a href="" class="dropdown-item">Project Ownership Generator</a>
+                            <a href="" class="dropdown-item">Tempy Transfer</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a href="https://codezune.com/newsletter" target="_blank" class="nav-link">Subscribe
                             Newsletter</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="https://codezune.com/newsletter" target="_blank" class="nav-link">Subscribe
-                            Newsletter</a>
-                    </li>
-
                     <li class="nav-item">
                         <a href="https://codezune.com/contact-us" target="_blank" class="nav-link">Contact</a>
                     </li>
                 </ul>
 
-                <button id="get-started" class="btn btn-secondary text-primary ml-2">See Demo</button>
+                <button id="get-started" class="btn btn-primary ml-2">See Demo</button>
 
             </div>
         </div>
@@ -103,139 +106,188 @@
 
     <!--Main -->
 
-    <div class="container my-3">
+    <section id="main-container" class="container my-3">
         <div class="row">
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        <h4>Upload File</h4>
+            <div class="col-sm-7 py-5 my-2">
+                <div>
+                    <h2 class="display-4 font-weight-bold typewritter">Send without <span
+                            class="underline-primary">Limits</span>!</h2>
+                    <h2>It's fast, easy & secure!</h2>
+
+                    <h5 class="py-4">Transfer your photos, videos, texts and links for a temporary time without any
+                        restrictions and limitions.</h5>
+
+                    <p class="text-muted"><i class='bx bx-info-circle mr-2'></i>Start your file transfer by clicking the
+                        button on the right side of your screen to select wether to download or upload.</p>
+                </div>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+    </section>
+
+    <section id="features" class="my-3">
+        
+        <div class="container">
+            <h1 id="section-header" class="text-center py-2" >Features</h1>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-center box-shadow no-border py-5 px-4 border-top">
+                        <i class='bx bxs-data icon-large my-2'></i>
+                        <h4 class="font-weight-bold text-ternary mt-2">Unlimited Size</h4>
+                        <p class="text-muted mt-2">Send any file with any size if required. No size limitions are stricted.</p>
                     </div>
-                    <div class="card-body">
-
-                        <!-- Nav-tabs -->
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item" id="file-dropdown">
-                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                    aria-controls="home" aria-selected="true">File</a>
-                            </li>
-                            <li class="nav-item" id="text-dropdown">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                    aria-controls="profile" aria-selected="false">Text</a>
-                            </li>
-                        </ul>
-
-                        <!-- Tab-Contents -->
-                        <div class="tab-content mt-4" id="myTabContent">
-                            <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <form
-                                    class="w-100 border border-primary d-flex justify-content-center mb-3  align-items-center"
-                                    style="height: 100px;" id="form-upload">
-
-                                    <div class="form-file-header">
-                                        <h6 class="text-center" id="dragged-file-header">Drag files here or
-                                            click to
-                                            upload</h6>
-                                        <small>Your file will only be avaliable temporarly</small>
-                                    </div>
-                                    <input type="file" id="form-file">
-                                </form>
-                            </div>
-                            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <!-- Text Area -->
-                                <form class="">
-                                    <textarea class="w-100" name="" id="form-text" rows="4"
-                                        placeholder="Send a text here..."></textarea>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- Avaiablitiy Group -->
-                        <div class="avaliable-group">
-                            <h3>File Availablity</h3>
-
-                            <div class="input-group">
-                                <input id="form-time-input" type="number" class="form-control" step="1" value="1"
-                                    min="1" max="30">
-
-                                <div class="input-group-append">
-                                    <div class="dropdown">
-                                        <button id="form-time" class="dropdown-toggle btn btn-secondary" type="button"
-                                            data-toggle="dropdown">
-                                            Hour
-                                        </button>
-
-                                        <div id="form-time-type" class="dropdown-menu">
-                                            <li id="" class="dropdown-item c-pointer">Minute</li>
-                                            <li id="" class="dropdown-item c-pointer">Hour</li>
-                                            <li id="" class="dropdown-item c-pointer">Day</li>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <small class="text-muted">Your file will be deleted permanently after <span
-                                    id="temp-number">1</span>
-                                <span id="temp-type">hour/s</span> .</small>
-
-                        </div>
-
-                        <!-- Access Keys Group -->
-                        <div class="access-group">
-                            <h4 class="mt-3">Access Key <i class='bx bx-info-circle bx-xs'></i></h4>
-                            <div class="form-group">
-                                <label for="access-key">Enter a key or code to access your file.</label>
-                                <input id="form-accesskey" class="form-control" placeholder="Access Key:">
-                                <small class="text-muted">This key will be used to find and download your file.</small>
-                            </div>
-
-                            
-                            <button id="form-unbound-button" class="btn btn-secondary my-4 btn-block"
-                            type="button">Upload File</button>
-                            <small id="validation-msg" class="text-danger font-weight-bold"></small>
-                        </div>
-
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center box-shadow no-border py-5 px-4 border-top">
+                        <i class='bx bxs-data icon-large my-2'></i>
+                        <h4 class="font-weight-bold text-ternary mt-2">Unlimited Size</h4>
+                        <p class="text-muted mt-2">Send any file with any size if required. No size limitions are stricted.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center box-shadow no-border py-5 px-4 border-top">
+                        <i class='bx bxs-data icon-large my-2'></i>
+                        <h4 class="font-weight-bold text-ternary mt-2">Unlimited Size</h4>
+                        <p class="text-muted mt-2">Send any file with any size if required. No size limitions are stricted.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="card-header text-center">
-                        <h4>Download File</h4>
+        </div>
+    </section>
+
+    <!-- DIVS -->
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Upload File</h4>
+                </div>
+                <div class="card-body">
+
+                    <!-- Nav-tabs -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" id="file-dropdown">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">File</a>
+                        </li>
+                        <li class="nav-item" id="text-dropdown">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Text</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab-Contents -->
+                    <div class="tab-content mt-4" id="myTabContent">
+                        <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <form
+                                class="w-100 border border-primary d-flex justify-content-center mb-3  align-items-center"
+                                style="height: 100px;" id="form-upload">
+
+                                <div class="form-file-header">
+                                    <h6 class="text-center" id="dragged-file-header">Drag files here or
+                                        click to
+                                        upload</h6>
+                                    <small>Your file will only be avaliable temporarly</small>
+                                </div>
+                                <input type="file" id="form-file">
+                            </form>
+                        </div>
+                        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <!-- Text Area -->
+                            <form class="">
+                                <textarea class="w-100" name="" id="form-text" rows="4"
+                                    placeholder="Send a text here..."></textarea>
+                            </form>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <h3>Insert Access Key</h3>
 
-                                <div class="input-group my-2">
-                                    <input id="accesskey-input" type="text" class="form-control">
+                    <!-- Avaiablitiy Group -->
+                    <div class="avaliable-group">
+                        <h3>File Availablity</h3>
 
-                                    <div class="input-group-append">
-                                        <div class="dropdown">
-                                            <button id="form-download-dropdown-btn"
-                                                class="dropdown-toggle btn btn-secondary" type="button"
-                                                data-toggle="dropdown">
-                                                File
-                                            </button>
+                        <div class="input-group">
+                            <input id="form-time-input" type="number" class="form-control" step="1" value="1" min="1"
+                                max="30">
 
-                                            <div id="form-download-type" class="dropdown-menu">
-                                                <li id="download-file-select" class="dropdown-item c-pointer">File</li>
-                                                <li id="download-text-select" class="dropdown-item c-pointer">Text</li>
-                                            </div>
+                            <div class="input-group-append">
+                                <div class="dropdown">
+                                    <button id="form-time" class="dropdown-toggle btn btn-secondary" type="button"
+                                        data-toggle="dropdown">
+                                        Hour
+                                    </button>
+
+                                    <div id="form-time-type" class="dropdown-menu">
+                                        <li id="" class="dropdown-item c-pointer">Minute</li>
+                                        <li id="" class="dropdown-item c-pointer">Hour</li>
+                                        <li id="" class="dropdown-item c-pointer">Day</li>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <small class="text-muted">Your file will be deleted permanently after <span
+                                id="temp-number">1</span>
+                            <span id="temp-type">hour/s</span> .</small>
+
+                    </div>
+
+                    <!-- Access Keys Group -->
+                    <div class="access-group">
+                        <h4 class="mt-3">Access Key <i class='bx bx-info-circle bx-xs'></i></h4>
+                        <div class="form-group">
+                            <label for="access-key">Enter a key or code to access your file.</label>
+                            <input id="form-accesskey" class="form-control" placeholder="Access Key:">
+                            <small class="text-muted">This key will be used to find and download your file.</small>
+                        </div>
+
+
+                        <button id="form-unbound-button" class="btn btn-secondary my-4 btn-block" type="button">Upload
+                            File</button>
+                        <small id="validation-msg" class="text-danger font-weight-bold"></small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Download File</h4>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <h3>Insert Access Key</h3>
+
+                            <div class="input-group my-2">
+                                <input id="accesskey-input" type="text" class="form-control">
+
+                                <div class="input-group-append">
+                                    <div class="dropdown">
+                                        <button id="form-download-dropdown-btn"
+                                            class="dropdown-toggle btn btn-secondary" type="button"
+                                            data-toggle="dropdown">
+                                            File
+                                        </button>
+
+                                        <div id="form-download-type" class="dropdown-menu">
+                                            <li id="download-file-select" class="dropdown-item c-pointer">File</li>
+                                            <li id="download-text-select" class="dropdown-item c-pointer">Text</li>
                                         </div>
                                     </div>
                                 </div>
-                                <small class="text-muted py-2">Insert your access to download your <span
-                                        id="download-type-selected" class="font-weight-bold">file</span>.</small>
-
-                                <button id="accesskey-download-btn" type="button" class="btn btn-secondary btn-block">
-                                    Find & Download
-                                </button>
-                                <small id="accesskey-validation-msg" class="text-danger"></small>
                             </div>
-                        </form>
-                    </div>
+                            <small class="text-muted py-2">Insert your access to download your <span
+                                    id="download-type-selected" class="font-weight-bold">file</span>.</small>
+
+                            <button id="accesskey-download-btn" type="button" class="btn btn-secondary btn-block">
+                                Find & Download
+                            </button>
+                            <small id="accesskey-validation-msg" class="text-danger"></small>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -385,16 +437,18 @@
         </div>
     </div>
 
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
     <script type="text/javascript" src="assets/js/bundle.js"></script>
 </body>
 
 <!-- Vendors JS Files-->
-
-<script src="assets/js/micromodal.min.js"></script>
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jssocials.min.js"></script>
 <script src="assets/js/popper.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/jqScript.js"></script>
 <script>
     // Tool Tips Init
     $('[data-toggle="tooltip"]').tooltip();

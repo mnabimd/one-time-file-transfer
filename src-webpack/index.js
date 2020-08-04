@@ -8,6 +8,8 @@ const { makeUploadRequest, makeDownloadRequest, getPercentUpload } = require('./
 const { textApplier } = require('./views/utils');
 const { dataValidator } = require('./modals/DataValidator');
 const { showTextFileModal, responseMessage } = require('./views/modals');
+
+
 // Dragged File Header Name:-
 elements.formFile.onchange = (e) => {
     // Apply The New File Name:

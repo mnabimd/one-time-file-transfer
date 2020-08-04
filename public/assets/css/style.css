@@ -1,15 +1,24 @@
-*, html, body {
+*, html, body, .display-4{
     font-family: 'Poppins';
+}
 
+#main-container {
+    
 }
 
 .c-pointer {
     cursor: pointer;
 }
 
-.navbar {
-    border-bottom: 2px solid #ced4da;
+/* Shadows for Navbar and Footer */
+.navbar, footer, .card {
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25) !important;
 }
+
+.no-border {
+    border: none !important;
+}
+
 
 .navbar li.nav-item a {
     font-weight: 600;
@@ -31,7 +40,9 @@
 #get-started{
     font-weight: 600;
     font-size: 15px;
-}
+};
+
+
 
 #form-upload, #form-text {
     border: 1px dotted black !important;
@@ -64,6 +75,62 @@ display: none;
     cursor: pointer;
 }
 
+/* Dropdowns */
+.dropdown-menu {
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    transition: 0.3s;
+    border: none;
+}
+
+.dropdown-menu .dropdown-item {
+    width: auto;
+}
+
+#navbarmy .navbar-nav .dropdown .dropdown-item {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+/* Global Classes */
+
+.icon-large {
+    font-size: 4.5rem !important;
+}
+
+.text-ternary {
+    color: #466393;
+}
+
+.bg-ternary {
+    background: #466393 !important;
+}
+
+.underline-primary {
+    /* border-bottom: 3px solid #466393; */
+    text-decoration: underline;
+    text-decoration-color: #466393;
+}
+
+.border-top {
+    border-top: 4px solid #466393 !important;
+}
+
+@media screen and (min-width: 768px){
+    .dropdown:hover .dropdown-menu, .btn-group:hover .dropdown-menu{
+          display: block;
+      }
+      .dropdown-menu{
+          margin-top: 0;
+      }
+      .dropdown-toggle{
+          margin-bottom: 2px;
+      }
+      .navbar .dropdown-toggle, .nav-tabs .dropdown-toggle{
+          margin-bottom: 0;
+      }
+  }
 
 /* -------------------------- Project Ownership -------------------------- */
 /* 1. Project Name: Project Ownership Generator */
