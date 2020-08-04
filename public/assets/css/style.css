@@ -32,11 +32,11 @@ body {
 }
 
 .navbar li.nav-item a:hover {
-    color: #3b4ef8 !important;
+    color: #004e92 !important;
 }
 
 .navbar li.nav-item a.active {
-    color: #3b4ef8 !important;
+    color: #004e92 !important;
 }
 
 #get-started-btn{
