@@ -42,8 +42,7 @@ body {
 #get-started-btn{
     font-weight: 600;
     font-size: 15px;
-};
-
+}
 
 
 #form-upload, #form-text {
@@ -93,7 +92,85 @@ display: none;
     padding-bottom: 7px;
     margin-top: 3px;
     margin-bottom: 3px;
+};
+
+.circle {
+    border: 1px solid #fff;
+    width: 300px !important;
+    height: 300px !important;
+    color: white;
+    z-index: 10;
+    display: inline-block;
+    padding: 50px;
 }
+
+
+.circle {
+    width: 250px !important;
+    height: 250px !important;
+    border-radius: 100%;
+    background: #fff;
+    cursor: pointer;
+    z-index: 1;;
+}
+
+.border-layer-1, .border-layer-2, .border-layer-3 {
+    border-right: solid #5d9acf;
+    border-top: solid #5d9acf;
+    border-left: solid #3082a8;
+    border-bottom: solid #3082a8;
+    border-width: 5px;
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    animation-name: circleBorder;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    transition: 1s;
+    position: absolute;
+}
+
+.border-layer-2 {
+    border-right: solid #3082a8;
+    border-top:  solid #3082a8;
+    border-left: solid #5d9acf;
+    border-bottom: solid #5d9acf;
+    border-width: 5px;
+    width: 259px;
+    height: 259px;
+    animation-duration: 5s;
+}
+
+.border-layer-3 {
+    border-right: solid #3082a8;
+    border-top:  solid #3082a8;
+    border-left: solid #5d9acf;
+    border-bottom: solid #5d9acf;
+    border-width: 5px;
+    width: 268px;
+    height: 268px;
+    animation-duration: 3s;
+}
+.inner-cricle {
+    position: absolute;
+}
+
+.popover {
+    margin-bottom: 20px;
+    z-index: 1;
+}
+
+
+@keyframes circleBorder {
+    0% {
+    }
+
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
 
 /* Global Classes */
 
@@ -123,6 +200,50 @@ display: none;
 
 .border-top {
     border-top: 4px solid #466393 !important;
+}
+
+#download-pop-btn {
+    width: 100%;
+}
+
+/* Start-Popver */
+#start-popover {
+    animation-name: start-popover;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+    /* animation-play-state: running; */
+    animation-direction: alternate-reverse;
+    animation-timing-function: ease-in-out;
+}
+
+#cloud-icon  {
+    position: absolute;
+    opacity: 0;
+    transition: 0.7s;
+    font-size: 6.5rem !important;
+}
+
+#start-text {
+    z-index: 12;
+    transition: 0.8s;
+}
+
+#upload-div:hover  #cloud-icon {
+    opacity: 1;
+    transition: 0.7s;
+}
+
+#upload-div:hover #start-text {
+    opacity: 0;
+}
+
+@keyframes start-popover {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(8px)
+    }
 }
 
 @media screen and (min-width: 768px){

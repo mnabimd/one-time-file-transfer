@@ -16,3 +16,7 @@ $(document).ready(function(){
       }
   });
 }); 
+
+
+// Show popovers without clicking:
+$('#upload-button').popover('show');

@@ -57,12 +57,12 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/fonts/fontawesome-free-5.11.2/css/all.min.css">
     <!-- <script src="https://kit.fontawesome.com/codezunefonts.js" crossorigin="anonymous"></script> -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/animate.css">
     <link rel="stylesheet" href="./assets/css/jssocials.css">
     <link rel="stylesheet" href="./assets/css/jssocials-theme-classic.css">
-
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Tempy Transfer: Temporarly Transfer Your Files & Texts</title>
 </head>
 
@@ -128,7 +128,30 @@
                         button on the right side of your screen to select wether to download or upload.</p>
                 </div>
             </div>
-            <div class="col-sm-5"></div>
+            <div class="col-sm-5 flex-column d-flex justify-content-end align-items-center">
+                
+                <!-- Popover -->
+                <div id="start-popover" class="popover fade show bs-popover-top" role="tooltip" id="popover429689" x-placement="top" style="left: auto; position: relative"><div class="arrow" style="left: 113px;"></div><h3 class="popover-header"></h3><div class="popover-body">Click to start uploading your files</div></div>
+
+                <div class="d-flex  justify-content-center align-items-center mt-2">
+                    <div class="border-layer-1"></div>
+                    <div class="border-layer-2"></div>
+                    <div class="border-layer-3"></div>
+
+                    
+                    <div id="upload-div" class="circle text-light d-flex flex-column justify-content-center align-items-center">
+                        <h2 id="start-text" class="text-primary">START</h2>
+                        <i id="cloud-icon" class='bx bx-cloud-upload icon-large text-primary'></i>        
+                    </div>
+                </div>
+
+                <div class="download-btn-div mt-4">
+                    <!-- <div class="text-light text-center">OR</div> -->
+                    <button id="download-pop-btn" class="btn py-3 btn-primary px-4" data-toggle="tooltip" data-placement="bottom" title="<small>Click to begin downloading your uploaded files or texts!</small>" data-html="true">
+                        Download File | Text
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -138,25 +161,51 @@
             <h1 id="section-header" class="text-center py-2 text-light">Features</h1>
             
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 my-2">
                     <div class="card text-center box-shadow no-border py-5 px-4 border-top">
                         <i class='bx bxs-data icon-large my-2'></i>
                         <h4 class="font-weight-bold text-ternary mt-2">Unlimited Size</h4>
-                        <p class="text-muted mt-2">Send any file with any size if required. No size limitions are stricted.</p>
+                        <p class="text-muted mt-2">Send any file with any size. No file size limitions are stricted, unlike on other transfer websites.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 my-2">
                     <div class="card text-center box-shadow no-border py-5 px-4 border-top">
-                        <i class='bx bxs-data icon-large my-2'></i>
-                        <h4 class="font-weight-bold text-ternary mt-2">Unlimited Size</h4>
-                        <p class="text-muted mt-2">Send any file with any size if required. No size limitions are stricted.</p>
+                        <i class='bx bxs-user icon-large my-2'></i>
+                        <h4 class="font-weight-bold text-ternary mt-2">No Account</h4>
+                        <p class="text-muted mt-2">Other transfer websites requries an account from you, well we don't. It's simple and we save your time.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 my-2">
                     <div class="card text-center box-shadow no-border py-5 px-4 border-top">
-                        <i class='bx bxs-data icon-large my-2'></i>
-                        <h4 class="font-weight-bold text-ternary mt-2">Unlimited Size</h4>
-                        <p class="text-muted mt-2">Send any file with any size if required. No size limitions are stricted.</p>
+                        <i class='bx bxs-x-circle icon-large my-2'></i>
+                        <h4 class="font-weight-bold text-ternary mt-2">Temporarly Delete</h4>
+                        <p class="text-muted mt-2">Your files are securely saved for a limited time and it can be saved up to 365 days.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 my-2">
+                    <div class="card text-center box-shadow no-border py-5 px-4 border-top">
+                        <i class='bx bxs-server icon-large my-2'></i>
+                        <h4 class="font-weight-bold text-ternary mt-2">Max Speed</h4>
+                        <p class="text-muted mt-2">Send any file with max speed. We don't limit the speed of download and upload.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 my-2">
+                    <div class="card text-center box-shadow no-border py-5 px-4 border-top">
+                        <i class='bx bx-shield-quarter icon-large my-2'></i>
+                        <h4 class="font-weight-bold text-ternary mt-2">Security</h4>
+                        <p class="text-muted mt-2">Your data is our data. We have created as much security environment as possible.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 my-2">
+                    <div class="card text-center box-shadow no-border py-5 px-4 border-top">
+                        <i class='bx bx-message-square-check icon-large my-2'></i>
+                        <h4 class="font-weight-bold text-ternary mt-2">Easy To Use</h4>
+                        <p class="text-muted mt-2">The GUI is user-friendly. Easy to understand and use, unlike other transfer applications.</p>
                     </div>
                 </div>
             </div>
@@ -459,6 +508,9 @@
 <script>
     // Tool Tips Init
     $('[data-toggle="tooltip"]').tooltip();
+
+    // Init Popovers:
+    $('[data-toggle="popover"]').popover();
 </script>
 
 </html>
