@@ -1,6 +1,6 @@
 const Text = require('../models/Text');
 const File = require('../models/File');
-const moment = require('moment');
+// const moment = require('moment');
 const logger = require('../logger/log');
 
 const auth = async (req, res, next) => {
@@ -20,8 +20,8 @@ const auth = async (req, res, next) => {
             });
     
             // If no text found:
+            console.log(textFile)
             if (!textFile) return res.status(404).send({error: 'No text found!'});
-    
             // Else :-
             req.text = textFile;
 

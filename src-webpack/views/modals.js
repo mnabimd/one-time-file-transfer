@@ -27,11 +27,8 @@ const showTextFileModal = (data) => {
         elements.fileDownload.href = `${dotEnv.HOST}/${data.downloadLink}`;
 
         const date = new Date(data.expiresOn);
-        console.log(data.expiresOn)
-        console.log(date)
-
         const time = moment(date).format('YYYY-MM-DD - hh:mm a')
-        console.log(time)
+
         elements.fileExpiry.children[0].textContent = time;
 
         elements.fileModalBtn.click();

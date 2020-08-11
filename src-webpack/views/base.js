@@ -29,7 +29,8 @@ const elements = {
     fileDownload: document.getElementById('modal-download'),
     fileExpiry: document.getElementById('file-expiry'),
     modalFilename: document.getElementById('modal-filename'),
-    progressBar: document.getElementById('progress-bar-upload')
+    progressBar: document.getElementById('progress-bar-upload'),
+    uploadButton: document.getElementById('upload-div')
 }
 
 

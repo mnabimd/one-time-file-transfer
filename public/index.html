@@ -22,10 +22,10 @@
     <meta name="msapplication-navbutton-color" content="#004e92">
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#004e92">
-    
+
     <!-- Indexing -->
     <meta name="robots" content="index, follow">
-    
+
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Krub:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -61,7 +61,7 @@
     <link rel="stylesheet" href="./assets/css/animate.css">
     <link rel="stylesheet" href="./assets/css/jssocials.css">
     <link rel="stylesheet" href="./assets/css/jssocials-theme-classic.css">
-    
+
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Tempy Transfer: Temporarly Transfer Your Files & Texts</title>
 </head>
@@ -90,9 +90,10 @@
                         <a href="https://codezune.com/blog" data-toggle="dropdown" target="_blank"
                             class="nav-link dropdown-toggle">Apps</a>
                         <div class="dropdown-menu">
-                            <a href="" class="dropdown-item">PhotoMillion</a>
-                            <a href="" class="dropdown-item">Project Ownership Generator</a>
-                            <a href="" class="dropdown-item">Tempy Transfer</a>
+                            <a href="https://photomillion.codezune.com/" class="dropdown-item">PhotoMillion</a>
+                            <a href="https://app.codezune.com/project-ownership/" class="dropdown-item">Project
+                                Ownership Generator</a>
+                            <a href="https://tempy.codezune.com" class="dropdown-item">Tempy Transfer</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -104,7 +105,7 @@
                     </li>
                 </ul>
 
-                <button id="get-started-btn" class="btn btn-primary bg-gradient ml-2">See Demo</button>
+                <button id="get-started-btn" class="btn btn-primary bg-gradient ml-2">Demo Coming Soon</button>
 
             </div>
         </div>
@@ -115,13 +116,14 @@
 
     <section id="main-container" class="container my-3">
         <div class="row">
-            <div class="col-sm-7 py-5 my-2">
-                <div>
+            <div class="col-sm-7 py-5 my-2 d-none d-sm-block">
+                <div class="">
                     <h2 class="display-4 font-weight-bold typewritter text-light">Send without <span
                             class="underline-primary">Limits</span>!</h2>
                     <h2 class="text-light">It's fast, easy & secure!</h2>
 
-                    <h5 class="py-4 text-light">Transfer your photos, videos, texts and links for a temporary time without any
+                    <h5 class="py-4 text-light">Transfer your photos, videos, texts and links for a temporary time
+                        without any
                         restrictions and limitions.</h5>
 
                     <p class="text-light"><i class='bx bx-info-circle mr-2'></i>Start your file transfer by clicking the
@@ -129,25 +131,45 @@
                 </div>
             </div>
             <div class="col-sm-5 flex-column d-flex justify-content-end align-items-center">
-                
+
+                <!-- Header For SM Displays -->
+                <div class="text-light d-sm-none mt-3">
+                    <h1 class="h1 text-center">Send without limits!</h1>
+                    <p class="text-center mb-5">
+                        Transfer your photos, videos, texts and links for a temporary time
+                        without any
+                        restrictions and limitions
+                    </p>
+                </div>
+
                 <!-- Popover -->
-                <div id="start-popover" class="popover fade show bs-popover-top" role="tooltip" id="popover429689" x-placement="top" style="left: auto; position: relative"><div class="arrow" style="left: 113px;"></div><h3 class="popover-header"></h3><div class="popover-body">Click to start uploading your files</div></div>
+                <div id="start-popover" class="popover fade show bs-popover-top" role="tooltip" id="popover429689"
+                    x-placement="top" style="left: auto; position: relative">
+                    <div class="arrow" style="left: 113px;"></div>
+                    <h3 class="popover-header"></h3>
+                    <div class="popover-body">Click to start uploading your files</div>
+                </div>
 
                 <div class="d-flex  justify-content-center align-items-center mt-2">
                     <div class="border-layer-1"></div>
                     <div class="border-layer-2"></div>
                     <div class="border-layer-3"></div>
 
-                    
-                    <div id="upload-div" class="circle text-light d-flex flex-column justify-content-center align-items-center">
+
+                    <div id="upload-div"
+                        class="circle text-light d-flex flex-column justify-content-center align-items-center"
+                        data-target="#upload-modal" data-toggle="modal">
                         <h2 id="start-text" class="text-primary">START</h2>
-                        <i id="cloud-icon" class='bx bx-cloud-upload icon-large text-primary'></i>        
+                        <i id="cloud-icon" class='bx bx-cloud-upload icon-large text-primary'></i>
                     </div>
                 </div>
 
                 <div class="download-btn-div mt-4">
                     <!-- <div class="text-light text-center">OR</div> -->
-                    <button id="download-pop-btn" class="btn py-3 btn-primary px-4" data-toggle="tooltip" data-placement="bottom" title="<small>Click to begin downloading your uploaded files or texts!</small>" data-html="true">
+                    <button id="download-pop-btn" class="btn py-3 btn-primary px-4" data-toggle="modal"
+                        data-target="#download-modal" data-placement="bottom"
+                        title="<small>Click to begin downloading your uploaded files or texts!</small>"
+                        data-html="true">
                         Download File | Text
                     </button>
                 </div>
@@ -155,31 +177,34 @@
         </div>
     </section>
 
-    <section id="features" class="my-3">
-        
+    <section id="features" class="my-4">
+
         <div class="container">
             <h1 id="section-header" class="text-center py-2 text-light">Features</h1>
-            
+
             <div class="row">
                 <div class="col-md-4 my-2">
                     <div class="card text-center box-shadow no-border py-5 px-4 border-top">
                         <i class='bx bxs-data icon-large my-2'></i>
                         <h4 class="font-weight-bold text-ternary mt-2">Unlimited Size</h4>
-                        <p class="text-muted mt-2">Send any file with any size. No file size limitions are stricted, unlike on other transfer websites.</p>
+                        <p class="text-muted mt-2">Send any file with any size. No file size limitions are stricted,
+                            unlike on other transfer websites.</p>
                     </div>
                 </div>
                 <div class="col-md-4 my-2">
                     <div class="card text-center box-shadow no-border py-5 px-4 border-top">
                         <i class='bx bxs-user icon-large my-2'></i>
                         <h4 class="font-weight-bold text-ternary mt-2">No Account</h4>
-                        <p class="text-muted mt-2">Other transfer websites requries an account from you, well we don't. It's simple and we save your time.</p>
+                        <p class="text-muted mt-2">Other transfer websites requries an account from you, well we don't.
+                            It's simple and we save your time.</p>
                     </div>
                 </div>
                 <div class="col-md-4 my-2">
                     <div class="card text-center box-shadow no-border py-5 px-4 border-top">
                         <i class='bx bxs-x-circle icon-large my-2'></i>
                         <h4 class="font-weight-bold text-ternary mt-2">Temporarly Delete</h4>
-                        <p class="text-muted mt-2">Your files are securely saved for a limited time and it can be saved up to 365 days.</p>
+                        <p class="text-muted mt-2">Your files are securely saved for a limited time and it can be saved
+                            up to 365 days.</p>
                     </div>
                 </div>
             </div>
@@ -191,139 +216,173 @@
                     <div class="card text-center box-shadow no-border py-5 px-4 border-top">
                         <i class='bx bxs-server icon-large my-2'></i>
                         <h4 class="font-weight-bold text-ternary mt-2">Max Speed</h4>
-                        <p class="text-muted mt-2">Send any file with max speed. We don't limit the speed of download and upload.</p>
+                        <p class="text-muted mt-2">Send any file with max speed. We don't limit the speed of download
+                            and upload.</p>
                     </div>
                 </div>
                 <div class="col-md-4 my-2">
                     <div class="card text-center box-shadow no-border py-5 px-4 border-top">
                         <i class='bx bx-shield-quarter icon-large my-2'></i>
                         <h4 class="font-weight-bold text-ternary mt-2">Security</h4>
-                        <p class="text-muted mt-2">Your data is our data. We have created as much security environment as possible.</p>
+                        <p class="text-muted mt-2">Your data is our data. We have created as much security environment
+                            as possible.</p>
                     </div>
                 </div>
                 <div class="col-md-4 my-2">
                     <div class="card text-center box-shadow no-border py-5 px-4 border-top">
                         <i class='bx bx-message-square-check icon-large my-2'></i>
                         <h4 class="font-weight-bold text-ternary mt-2">Easy To Use</h4>
-                        <p class="text-muted mt-2">The GUI is user-friendly. Easy to understand and use, unlike other transfer applications.</p>
+                        <p class="text-muted mt-2">The GUI is user-friendly. Easy to understand and use, unlike other
+                            transfer applications.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DIVS -->
-    <div class="row d-none">
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h4>Upload File</h4>
-                </div>
-                <div class="card-body">
-
-                    <!-- Nav-tabs -->
-                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                        <li class="nav-item" id="file-dropdown">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                                aria-controls="home" aria-selected="true">File</a>
-                        </li>
-                        <li class="nav-item" id="text-dropdown">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                aria-controls="profile" aria-selected="false">Text</a>
-                        </li>
-                    </ul>
-
-                    <!-- Tab-Contents -->
-                    <div class="tab-content mt-4" id="myTabContent">
-                        <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                            <form
-                                class="w-100 border border-primary d-flex justify-content-center mb-3  align-items-center"
-                                style="height: 100px;" id="form-upload">
-
-                                <div class="form-file-header">
-                                    <h6 class="text-center" id="dragged-file-header">Drag files here or
-                                        click to
-                                        upload</h6>
-                                    <small>Your file will only be avaliable temporarly</small>
-                                </div>
-                                <input type="file" id="form-file">
-                            </form>
-                        </div>
-                        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                            <!-- Text Area -->
-                            <form class="">
-                                <textarea class="w-100" name="" id="form-text" rows="4"
-                                    placeholder="Send a text here..."></textarea>
-                            </form>
-                        </div>
+    <!-- File Upload Popup Modal -->
+    <div class="modal fade" id="upload-modal" role="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title h5">
+                        What to upload?
                     </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card">
+                        <!-- <div class="card-header text-center">
+                            <h4>Upload File</h4>
+                        </div> -->
+                        <div class="card-body">
 
-                    <!-- Avaiablitiy Group -->
-                    <div class="avaliable-group">
-                        <h3>File Availablity</h3>
+                            <!-- Nav-tabs -->
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item" id="file-dropdown">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                        aria-controls="home" aria-selected="true">File</a>
+                                </li>
+                                <li class="nav-item" id="text-dropdown">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                        aria-controls="profile" aria-selected="false">Text</a>
+                                </li>
+                            </ul>
 
-                        <div class="input-group">
-                            <input id="form-time-input" type="number" class="form-control" step="1" value="1" min="1"
-                                max="30">
+                            <!-- Tab-Contents -->
+                            <div class="tab-content mt-4" id="myTabContent">
+                                <div class="tab-pane show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <form
+                                        class="w-100 border border-primary d-flex justify-content-center mb-3  align-items-center"
+                                        style="height: 100px;" id="form-upload">
 
-                            <div class="input-group-append">
-                                <div class="dropdown">
-                                    <button id="form-time" class="dropdown-toggle btn btn-secondary" type="button"
-                                        data-toggle="dropdown">
-                                        Hour
-                                    </button>
-
-                                    <div id="form-time-type" class="dropdown-menu">
-                                        <li id="" class="dropdown-item c-pointer">Minute</li>
-                                        <li id="" class="dropdown-item c-pointer">Hour</li>
-                                        <li id="" class="dropdown-item c-pointer">Day</li>
-                                    </div>
+                                        <div class="form-file-header">
+                                            <h6 class="text-center text-primary" id="dragged-file-header">Drag files
+                                                here or
+                                                click to
+                                                upload</h6>
+                                            <small class="text-muted">Your file will only be avaliable
+                                                temporarly</small>
+                                        </div>
+                                        <input type="file" id="form-file">
+                                    </form>
+                                </div>
+                                <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <!-- Text Area -->
+                                    <form class="">
+                                        <textarea class="w-100" name="" id="form-text" rows="4"
+                                            placeholder="Send a text here..."></textarea>
+                                    </form>
                                 </div>
                             </div>
 
+                            <!-- Avaiablitiy Group -->
+                            <div class="avaliable-group">
+                                <h5>File Availablity</h5>
+
+                                <div class="input-group">
+                                    <input id="form-time-input" type="number" class="form-control border" step="1"
+                                        value="1" min="1" max="30">
+
+                                    <div class="input-group-append">
+                                        <div class="dropdown">
+                                            <button id="form-time" class="dropdown-toggle btn btn-primary" type="button"
+                                                data-toggle="dropdown">
+                                                Hour
+                                            </button>
+
+                                            <div id="form-time-type" class="dropdown-menu">
+                                                <li id="" class="dropdown-item c-pointer">Minute</li>
+                                                <li id="" class="dropdown-item c-pointer">Hour</li>
+                                                <li id="" class="dropdown-item c-pointer">Day</li>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <small class="text-muted">Your file will be deleted permanently after <span
+                                        id="temp-number">1</span>
+                                    <span id="temp-type">hour/s</span> .</small>
+
+                            </div>
+
+                            <!-- Access Keys Group -->
+                            <div class="access-group">
+                                <h4 class="mt-3 h5">Access Key <i class='bx bx-info-circle bx-xs' data-toggle="tooltip"
+                                        data-html="true"
+                                        title="<small>Later, you will need this key to download your data.<small>"
+                                        data-placement="right"></i></h4>
+                                <div class="form-group">
+                                    <!-- <label for="access-key">Enter a key or code to access your file.</label> -->
+                                    <input id="form-accesskey" class="form-control border" placeholder="A72743"
+                                        maxlength="6">
+                                    <small class="text-muted">This key will be used to find and download your
+                                        file.</small>
+                                </div>
+
+
+                                <button id="form-unbound-button" class="btn btn-primary my-4 btn-block" type="button">
+                                    Upload</button>
+                                <small id="validation-msg" class="text-danger font-weight-bold"></small>
+                            </div>
+
                         </div>
-
-                        <small class="text-muted">Your file will be deleted permanently after <span
-                                id="temp-number">1</span>
-                            <span id="temp-type">hour/s</span> .</small>
-
                     </div>
-
-                    <!-- Access Keys Group -->
-                    <div class="access-group">
-                        <h4 class="mt-3">Access Key <i class='bx bx-info-circle bx-xs'></i></h4>
-                        <div class="form-group">
-                            <label for="access-key">Enter a key or code to access your file.</label>
-                            <input id="form-accesskey" class="form-control" placeholder="Access Key:">
-                            <small class="text-muted">This key will be used to find and download your file.</small>
-                        </div>
-
-
-                        <button id="form-unbound-button" class="btn btn-secondary my-4 btn-block" type="button">Upload
-                            File</button>
-                        <small id="validation-msg" class="text-danger font-weight-bold"></small>
-                    </div>
-
                 </div>
+                <!-- <div class="modal-footer">
+                    Lorem ipsum dolor sit amet.
+                </div> -->
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h4>Download File</h4>
+    </div>
+
+    <!-- File Download Popup/Modal -->
+    <div class="modal fade" id="download-modal" role="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title h5">
+                        Downlaod
+                    </div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="card-body">
+                <div class="modal-body px-4">
                     <form>
                         <div class="form-group">
-                            <h3>Insert Access Key</h3>
+                            <h5 class="">Insert Access Key</h5>
 
                             <div class="input-group my-2">
-                                <input id="accesskey-input" type="text" class="form-control">
+                                <input id="accesskey-input" type="text" class="form-control" maxlength="6">
 
                                 <div class="input-group-append">
                                     <div class="dropdown">
                                         <button id="form-download-dropdown-btn"
-                                            class="dropdown-toggle btn btn-secondary" type="button"
+                                            class="dropdown-toggle btn btn-primary" type="button"
                                             data-toggle="dropdown">
                                             File
                                         </button>
@@ -335,19 +394,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <small class="text-muted py-2">Insert your access to download your <span
+                            <small class="text-muted py-2">Insert your access key/code to download your <span
                                     id="download-type-selected" class="font-weight-bold">file</span>.</small>
 
-                            <button id="accesskey-download-btn" type="button" class="btn btn-secondary btn-block">
+                            <button id="accesskey-download-btn" type="button" class="btn btn-primary btn-block">
                                 Find & Download
                             </button>
                             <small id="accesskey-validation-msg" class="text-danger"></small>
                         </div>
                     </form>
                 </div>
+                <!-- <div class="modal-footer">
+                    Lorem ipsum dolor sit amet.
+                </div> -->
             </div>
         </div>
     </div>
+
 
     <!-- Bootstrap Modals -->
 
@@ -365,8 +428,8 @@
                 <div class="modal-body">
                     <h6>Your Text:</h6>
                     <textarea name="" class="w-100" id="text-modal-textarea"></textarea>
-                    <small class="text-muted" id="text-expiry">Your text will be automatically deleted after: <span
-                            class="text-danger"> 2020/6/18</span></small><br>
+                    <small class="text-muted" id="text-expiry">Your text will be automatically deleted
+                        after: <span class="text-danger"> 2020/6/18</span></small><br>
 
                     <small class="text-muted" id="text-copied-textarea"></small>
                 </div>
@@ -397,8 +460,8 @@
                     <div class="p2">
                         <h5 class="text-center mx-auto" id="modal-filename"></h5>
                     </div>
-                    <small class="text-muted" id="file-expiry">Your file will be automatically deleted after: <span
-                            class="text-danger">2020/6/18</span></small><br>
+                    <small class="text-muted" id="file-expiry">Your file will be automatically deleted
+                        after: <span class="text-danger">2020/6/18</span></small><br>
                 </div>
                 <div class="modal-footer">
                     <a class="btn btn-secondary" id="modal-download">Download File</a>
@@ -412,70 +475,22 @@
     </div>
 
 
+
     <!-- Footer -->
-    <footer class="bg-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3">
-                    <h4>Transferly</h4>
-                    <p>
-                        A108 Adam Street<br>
-                        New York, NY 535022<br>
-                        United StatesF
-                    </p>
 
-                    <div>
-                        <p><span class="font-weight-bold">Phone:</span> +1 5589 55488 55 <br>
-                            <span class="font-weight-bold">Email:</span> hi@codezune.com
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <h5>Useful Links</h5>
-
-                    <ul class="list-group" style="list-style-type: none;">
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Home</li>
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>About Us</li>
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Services</li>
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Terms of Services</li>
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Contact</li>
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Privacy</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>Our Services</h5>
-
-                    <ul class="list-group" style="list-style-type: none;">
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Web Design</li>
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Web Development</li>
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Product Management</li>
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Terms of Services</li>
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Marketing</li>
-                        <li class="ml-2"><i class='bx bxs-chevron-right'></i>Graphic Designing</li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h5>Join Our Newsletter</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing.</p>
-
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary bg-gradient" type="submit">Subscribe</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <div class="copyrights bg-light">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 d-flex align-items-center py-3">
-                    <p> &copy; CodeZune. All rights reserved</p>
+            <div class="row py-4 text-center">
+                <div class="col-md-4 d-flex justify-content-start">
+                    <h4 class="font-weight-bold my-auto">
+                        Tempy Transfer
+                    </h4>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4 d-flex align-items-center py-3">
+                    <p class="my-auto"> &copy; CodeZune. All rights reserved</p>
+                </div>
+                <div class="col-md-4">
                     <div class="float-right py-3">
                         <a href="#" class="twitter"><i
                                 class="bx bxl-twitter bg-secondary text-primary bx-xs p-2 rounded"></i></a>
@@ -489,6 +504,7 @@
                                 class="bx bxl-linkedin bg-secondary text-primary bx-xs p-2 rounded"></i></a>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

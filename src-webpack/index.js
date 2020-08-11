@@ -32,7 +32,7 @@ newChildren.forEach(child => {
 // FormTimeInput onchange :-
 elements.formTimeInput.onchange = e => {
     elements.tempNumber.textContent = e.target.value;
-    console.log(e.target)
+
 }
 
 // Text and File Dropdowns => Clear previous values:-
@@ -145,7 +145,6 @@ elements.accessKeyDwnBtn.addEventListener('click', async (e) => {
     const data = dataValidator(response);
     if (!data) return false;
 
-    console.log(data)
     showTextFileModal(data);
 
 });
