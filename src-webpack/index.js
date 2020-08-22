@@ -31,9 +31,15 @@ newChildren.forEach(child => {
 
 // FormTimeInput onchange :-
 elements.formTimeInput.onchange = e => {
+    // FormTimeInput Max Length Validation :- 
+    if (e.target.value >= 180) {
+        e.target.value = 180;
+    }
+
     elements.tempNumber.textContent = e.target.value;
 
 }
+
 
 // Text and File Dropdowns => Clear previous values:-
 const textFileDropdowns = [elements.fileDropdown, elements.textDropdown];
