@@ -2,6 +2,7 @@ const convertToTextOrFile = (obj) => {
     let newObj = {
         keycode: obj.accessKey,
         deleteTime: obj.deleteTime,
+        pin: obj.pin
     };
 
     if (!obj.formText) {

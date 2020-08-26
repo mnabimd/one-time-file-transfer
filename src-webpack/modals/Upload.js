@@ -2,6 +2,7 @@ class Upload {
     constructor(textFile){
         this.keycode = textFile.keycode;
         this.deleteTime = textFile.deleteTime;
+        this.pin = textFile.pin
 
         // This value will be deleted since there is no need for it after finding if it is a file or text
         this.attachment = textFile;

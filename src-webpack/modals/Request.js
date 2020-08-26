@@ -12,7 +12,7 @@ const formDataForFileUpload = (freshUploadParam) => {
     formData.append('keycode', freshUploadParam.keycode);
     formData.append('deleteTime', freshUploadParam.deleteTime);
     formData.append('myfile', freshUploadParam.myfile);
-    
+    formData.append('pin', freshUploadParam.pin)
     return formData;
 }
 

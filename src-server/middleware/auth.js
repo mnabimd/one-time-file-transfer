@@ -6,8 +6,10 @@ const logger = require('../logger/log');
 const auth = async (req, res, next) => {
     try {
         const keycode = req.body.keycode;
+        const pin = req.body.pin;
         
         if (!keycode) return res.status(400).send({error: 'Please enter a valid access key!'});
+        if (!pin) return res.status(400).send({error: 'Please enter a valid PIN code!'});
 
         let textFile;
         if (req.body.request === "text") {
@@ -15,25 +17,25 @@ const auth = async (req, res, next) => {
             // Search for the text:
             textFile = await Text.findOne({
                 where: {
-                    keycode: req.body.keycode
+                    keycode: req.body.keycode,
+                    pin: req.body.pin
                 }
             });
     
             // If no text found:
-            console.log(textFile)
             if (!textFile) return res.status(404).send({error: 'No text found!'});
             // Else :-
             req.text = textFile;
 
             // Set Timestamps:-
-            const timestamp = parseInt(textFile.deleteTime);
+            const timestamp = parseInt(textFile.deleteTime) * 1000;
 
-            const timeData = timestamp * 1000
-            req.expiresOn = timeData;
+            req.expiresOn = timestamp;
         } else if (req.body.request === 'file') {
             textFile = await File.findOne({
                 where: {
-                    keycode: req.body.keycode
+                    keycode: req.body.keycode,
+                    pin: req.body.pin
                 }
             });
 
@@ -60,9 +62,9 @@ const auth = async (req, res, next) => {
             req.yourFile = textFile;
 
             // Set timestamps:
-            const timestamp = parseInt(textFile.deleteTime);
-            const timeData = timestamp * 1000
-            req.expiresOn = timeData;
+            const timestamp = parseInt(textFile.deleteTime) * 1000;
+
+            req.expiresOn = timestamp;
         }
 
         next();

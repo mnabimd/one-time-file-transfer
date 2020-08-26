@@ -93,8 +93,6 @@ display: none;
 
 .circle {
     border: 1px solid #fff;
-    width: 300px !important;
-    height: 300px !important;
     color: white;
     z-index: 10;
     display: inline-block;
@@ -170,7 +168,8 @@ display: none;
 
 /* Global Classes */
 
-#download-modal .modal-dialog, #text-modal .modal-dialog, #file-modal .modal {
+
+#download-modal .modal-dialog, #text-modal .modal-dialog, #file-modal .modal-dialog {
     top: 25%
 }
 
@@ -265,6 +264,8 @@ display: none;
 #upload-div:hover #start-text {
     opacity: 0;
 }
+ 
+
 
 
 @keyframes start-popover {
@@ -289,14 +290,92 @@ display: none;
       .navbar .dropdown-toggle, .nav-tabs .dropdown-toggle{
           margin-bottom: 0;
       }
-  }
+}
 
-/* -------------------------- Project Ownership -------------------------- */
-/* 1. Project Name: Project Ownership Generator */
-/* 2. Developer/Creator: Mohammad Nabi */
-/* 3. Creation Date: 4/20/2020 */
-/* 4. Brief Description: Project Ownership helps every developer to save their efforts! */
-/* 5. Version: 1.0 */
-/* 6. Join me on Facebook: https://facebook.com/mohammadnabi.hotaki */
-/* 7. Our Website: https://codezune.com */
-/* ----------------------------------- POG ----------------------------------- */
+@media (max-width: 450px) {
+    .circle {
+        width: 250px !important;
+        height: 250px !important;
+    }
+    .border-layer-1 {
+        width: 235px !important;
+        height: 235px !important;
+    } 
+    .border-layer-2 {
+        width: 245px !important;
+        height: 245px !important;
+    } .border-layer-3 {
+        width: 255px !important;
+        height: 255px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    input#accesskey-input {
+        width: 75%;
+        margin-bottom: 5px;
+    }
+
+    input#pin {
+        max-width: 65% !important;
+    }
+
+    #download-modal .form-group {
+        margin-bottom: 0px !important;
+    }
+
+    #download-modal .form-group h5 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 375px) {
+    .circle {
+        width: 242px !important;
+        height: 242px !important;
+    }
+    .border-layer-1 {
+        width: 225px !important;
+        height: 225px !important;
+    } 
+    .border-layer-2 {
+        width: 235px !important;
+        height: 235px !important;
+    } .border-layer-3 {
+        width: 245px !important;
+        height: 245px !important;
+    }
+
+    #dragged-file-header{
+        font-size: 13px;
+    }
+
+    .small {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 375px) {
+    .circle {
+        width: 234px !important;
+        height: 234px !important;
+    }
+    .border-layer-1 {
+        width: 215px !important;
+        height: 215px !important;
+    } 
+    .border-layer-2 {
+        width: 225px !important;
+        height: 225px !important;
+    } .border-layer-3 {
+        width: 235px !important;
+        height: 235px !important;
+    }
+}
+
+@media (max-width: 350px) {
+    #auto-2-number {
+        padding: 0px;
+        margin: 0px;
+    }
+}

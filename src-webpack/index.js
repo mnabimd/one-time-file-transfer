@@ -9,7 +9,6 @@ const { textApplier } = require('./views/utils');
 const { dataValidator } = require('./modals/DataValidator');
 const { showTextFileModal, responseMessage } = require('./views/modals');
 
-
 // Dragged File Header Name:-
 elements.formFile.onchange = (e) => {
     // Apply The New File Name:
@@ -35,11 +34,17 @@ elements.formTimeInput.onchange = e => {
     if (e.target.value >= 180) {
         e.target.value = 180;
     }
-
     elements.tempNumber.textContent = e.target.value;
-
 }
 
+// PIN Code onchange Validation :-
+elements.auto2Number.onchange = e => {
+    if (e.target.value >= 999) {
+        e.target.value = 999
+    } else if (e.target.value <= 100) {
+        e.target.value = 100
+    }
+}
 
 // Text and File Dropdowns => Clear previous values:-
 const textFileDropdowns = [elements.fileDropdown, elements.textDropdown];
@@ -76,8 +81,7 @@ events.forEach(event => {
 
 // When the submit BTN (Upload) is clicked:-
 elements.submitBtn.addEventListener('click', async (e) => {
-    // Reset Access key value:
-
+    
     // Remove the progress first!
     resetProgressbar();
 
@@ -135,21 +139,30 @@ downloadDropdowns.forEach(dropdown => {
 
 // When the download btn is clicked and an accesskey is givin :-
 elements.accessKeyDwnBtn.addEventListener('click', async (e) => {
+
+    
     // Before Everything, reset every validation messages:-
     textApplier(elements.accessKeyValidationMsg, 'text-muted');
     // Get the value if no value provided then the function will automatically do validations.
     const key = getAccesskey();
     if (!key) return false;
-
+    
+    // Button text to Searching... :-
+    e.target.textContent = 'Searching';
+    
     // Provide the object with nesessary data such as: keycode and request type :-
     const accesskeyWithRequest = getAccesskey();
 
     // Let's send the HTTP Get request:-
     const response = await makeDownloadRequest(accesskeyWithRequest);
 
+    e.target.textContent = 'Find & Download';
+    // Button's message back to default
+
     // Validate The Data:- Check if error is recieved or a repsone(data);
     const data = dataValidator(response);
     if (!data) return false;
+
 
     showTextFileModal(data);
 

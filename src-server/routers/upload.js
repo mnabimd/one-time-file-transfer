@@ -34,7 +34,8 @@ router.post('/file-upload', upload.single('myfile'), async (req, res) => {
             id,
             keycode: req.body.keycode,
             deleteTime: req.body.deleteTime,
-            fileInfo: fileInfoToArray
+            fileInfo: fileInfoToArray,
+            pin: req.body.pin
         });
 
         await file.save();

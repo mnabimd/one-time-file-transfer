@@ -23,6 +23,11 @@ module.exports = {
       fileInfo: {
           type: Sequelize.TEXT,
       },
+      pin: {
+        type: Sequelize.INTEGER(11),
+        allowNull: false,
+        trim: true
+      },
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE
   })

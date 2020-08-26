@@ -7,7 +7,8 @@ const getInputs = () => {
     let values = {
         formText: elements.formText.value,
         formFile: elements.formFile.files[0],
-        accessKey: elements.accessKey.value
+        accessKey: elements.accessKey.value,
+        pin: parseInt(elements.auto2Number.value)
     };
 
     // This function will calculate the current timestamp + the more time user elected in the input.
@@ -51,13 +52,20 @@ const inputValidations = () => {
 
     if (!inputs.formText && !inputs.formFile && !inputs.accessKey) {
         elements.validationMsg.textContent = 'Please upload a text or a file with an access key!'
+        elements.validationMsg.classList = 'text-danger';
         return false;
     } else if (!inputs.formText && !inputs.formFile) {
         elements.validationMsg.textContent = 'Please upload a text or a file!'
+        elements.validationMsg.classList = 'text-danger';
     } else if (!inputs.accessKey) {
         elements.validationMsg.textContent = 'Please insert an access key!'
+        elements.validationMsg.classList = 'text-danger';
         return false;
-    };
+    } else if (!inputs.pin) {
+        elements.validationMsg.textContent = 'Please insert a PIN code!'
+        elements.validationMsg.classList = 'text-danger';
+        return false;
+    }
 
     // This means, everything is allright.
     return true;
@@ -68,7 +76,7 @@ const keycodeValidations = async (e) => {
     // Disable the submit btn:-
     disableElement(elements.submitBtn, true);
     const keycode = elements.accessKey.value;
-    const nextSibling = e.target.nextElementSibling;
+    const nextSibling = elements.nextSibling;
 
     if (keycode.length === 0) {
         nextSibling.innerText = `This key will be used to find and download your file/text.`;
@@ -97,8 +105,9 @@ const keycodeValidations = async (e) => {
         default: classType = 'text-muted';
     }
     // His next sibling:-
-    nextSibling.innerText = response.data.data;
-    nextSibling.classList = classType;
+    nextSibling.innerHTML = `<span class="text-primary">Response from Server: </span> ${response.data.data}`;
+
+    nextSibling.classList = `${classType} mt-2 mb-3`;
 }
 
 module.exports = {

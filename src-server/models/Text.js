@@ -19,6 +19,11 @@ const Text = sequelize.define("texts", {
         unique: true,
         trim: true
     },
+    pin: {
+        type: Sequelize.INTEGER(11),
+        allowNull: false,
+        trim: true
+    },
     deleteTime: {
         type: Sequelize.INTEGER,
         allowNull: false,

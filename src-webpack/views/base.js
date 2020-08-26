@@ -30,7 +30,12 @@ const elements = {
     fileExpiry: document.getElementById('file-expiry'),
     modalFilename: document.getElementById('modal-filename'),
     progressBar: document.getElementById('progress-bar-upload'),
-    uploadButton: document.getElementById('upload-div')
+    uploadButton: document.getElementById('upload-div'),
+    nextSibling: document.getElementById('next-sibling'),
+    auto2Number: document.getElementById('auto-2-number'),
+    startDiv: document.getElementById('start-div'),
+    downloadPIN: document.getElementById('pin'),
+    downloadPinTitle: document.getElementById('pin-title')
 }
 
 

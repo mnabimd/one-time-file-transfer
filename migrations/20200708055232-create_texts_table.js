@@ -24,6 +24,11 @@ module.exports = {
           allowNull: false,
           trim: true
       },
+      pin: {
+        type: Sequelize.INTEGER(11),
+        allowNull: false,
+        trim: true
+      },
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE
   });
