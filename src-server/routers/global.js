@@ -31,7 +31,7 @@ router.get('/global', (req, res) => {
 // Robots.txt
 router.get('/robots.txt', function (req, res) {
     res.type('text/plain');
-    res.send("User-agent: *\nDisallow: /");
+    res.send("User-agent: *\nAllow: /");
 });
 
 module.exports = router;
