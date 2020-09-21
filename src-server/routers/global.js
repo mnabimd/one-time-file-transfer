@@ -34,4 +34,6 @@ router.get('/robots.txt', function (req, res) {
     res.send("User-agent: *\nAllow: /");
 });
 
+
+
 module.exports = router;

@@ -2,3 +2,4 @@ node_modules
 Storage/*
 config/prod.env
 src-server/logger/logs/*
+.vercel
