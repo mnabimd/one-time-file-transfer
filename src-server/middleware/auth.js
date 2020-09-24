@@ -1,7 +1,5 @@
 const Text = require('../models/Text');
 const File = require('../models/File');
-// const moment = require('moment');
-const logger = require('../logger/log');
 
 const auth = async (req, res, next) => {
     try {
@@ -70,7 +68,6 @@ const auth = async (req, res, next) => {
         next();
     } catch (e) {
         res.status(500).send({error: 'Error from auth middleware', e});
-        logger.error({error: 'Error from auth middleware', e})
     }
 };
 

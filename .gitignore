@@ -3,3 +3,4 @@ Storage/*
 config/prod.env
 src-server/logger/logs/*
 .vercel
+vercel.json
